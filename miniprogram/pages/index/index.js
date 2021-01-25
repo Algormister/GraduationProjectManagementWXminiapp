@@ -35,8 +35,13 @@ Page({
   },
 
   mysqltest:function(){
+    let that = this
     wx.cloud.callFunction({
-      name: 'mysql'
+      name: 'mysql',
+      data: {
+        e: 'getpassword',
+        userid: '00000000'
+      }
     }).then(res => {
       console.log(res.result)
     }).catch(err => {

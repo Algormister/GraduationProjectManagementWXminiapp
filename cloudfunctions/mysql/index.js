@@ -13,8 +13,14 @@ exports.main = async(event, context) => {
       user: "lt",
       password: "Lengtian123"
     })
-    const [rows, fields] = await connection.execute('SELECT * from admin')
-    return rows;
+    if (event.e = "getpassword"){               //for login
+      // console.log(event.userid);
+      sql = "SELECT * from admin where userid = '" + event.userid + "'"
+      const [rows, fields] = await connection.execute(sql)
+      return rows;
+    }
+    // const [rows, fields] = await connection.execute('SELECT * from admin')
+    // return rows;
   } catch (err) {
     console.log("链接错误", err)
     return err

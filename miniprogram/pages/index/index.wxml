@@ -2,8 +2,8 @@
 <view class="top">
   <image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
   <view class="userinfo">
-    <text class="textSmall">{{userid}}</text>
-    <text class="textSmall">{{name}}</text>
+    <text style="font-size:10px;">{{userid}}</text>
+    <text style="font-size:10px;">{{name}}</text>
   </view>
   <image class="trimage" mode="aspectFit" src="../../images/index-logout.png" bindtap="logout"></image>
 </view>

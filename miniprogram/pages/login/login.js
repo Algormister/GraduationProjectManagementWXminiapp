@@ -128,45 +128,46 @@ Page({
       })
     }
     else{
-      const db = wx.cloud.database({
-        env:'test-3gstj04bdab809db'
-      });
-      const table = db.collection('admin').where({id:this.data.userid});
-      table.get({
-        success:function(res){
-          // console.log(res.data);
-          if(res.data.length == 1)
-          {
-            if(that.data.password == res.data[0].password){
-              wx.redirectTo({
-                url: '../index/index',
-              })
-              wx.setStorage({
-              data: {
-                  userid:that.data.userid,
-                  password:that.data.password,
-                  name:res.data[0].name,
-                  status:'admin'
-                },
-                key: 'userinfo',
-              })
-            }
-          }
-          else{
-            // console.log(res.data);
-            wx.showToast({
-              title: '学工号或密码错误',
-              icon: 'none',
-              duration: 2000,
-              mask:true
+      wx.cloud.callFunction({
+        name: 'mysql',
+        data: {
+          e: 'getpassword',
+          userid: that.data.userid
+        }
+      }).then(res => {
+        // console.log(res.result)
+        if(res.result.length == 1)
+        {
+          if(that.data.password == res.result[0].password){
+            wx.redirectTo({
+              url: '../index/index',
             })
-            that.setData({
-              userid:"",
-              password:""
+            wx.setStorage({
+            data: {
+                userid:that.data.userid,
+                password:that.data.password,
+                name:res.result[0].name,
+                status:'admin'
+              },
+              key: 'userinfo',
             })
           }
         }
-      });
+        else{
+          wx.showToast({
+            title: '学工号或密码错误',
+            icon: 'none',
+            duration: 2000,
+            mask:true
+          })
+          that.setData({
+            userid:"",
+            password:""
+          })
+        }
+      }).catch(err => {
+        console.log(err)
+      })
     }
   }
 })
