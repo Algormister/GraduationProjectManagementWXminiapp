@@ -1,0 +1,17 @@
+<page>
+  <view class="loginContainer">
+    <text class="textLarge" style="margin-bottom:10px;">毕业设计系统登录</text>
+    <view class="itemContainer">
+      <text decode="{{true}}" class="textMedium label">学工号&nbsp;</text>
+      <input type="text" bindinput="uid" value="{{userid}}" placeholder="请输入学工号"/>
+    </view>
+    <view class="itemContainer">
+      <text decode="{{true}}" class="textMedium label">密码&nbsp;&nbsp;&nbsp;</text>
+      <input type="text" password="true" bindinput="pw" bindconfirm="login" value="{{password}}" placeholder="请输入密码"/>
+    </view>
+    <view class="itemContainer">
+      <button class="btn" bindtap="reset">重置</button>
+      <button class="btn" bindtap="login">登录</button>
+    </view>
+  </view>
+</page>

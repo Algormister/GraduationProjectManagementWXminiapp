@@ -1,0 +1,10 @@
+/**app.wxss**/
+.textLarge{
+  font-size: 24px;
+}
+.textMedium{
+  font-size: 16px;
+}
+.textSmall{
+  font-size: 12px;
+}
