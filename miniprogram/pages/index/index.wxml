@@ -7,7 +7,7 @@
   </view>
   <image class="trimage" mode="aspectFit" src="../../images/index-logout.png" bindtap="logout"></image>
 </view>
-
+<view></view>
 <view class="container">
   <!-- 即时通信 -->
   <view class="uploader">
