@@ -15,7 +15,7 @@ exports.main = async(event, context) => {
     })
     if (event.e = "getpassword"){               //for login
       // console.log(event.userid);
-      sql = "SELECT * from admin where userid = '" + event.userid + "'"
+      sql = "SELECT * from user where userid = '" + event.userid + "'"
       const [rows, fields] = await connection.execute(sql)
       return rows;
     }
