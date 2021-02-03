@@ -146,7 +146,7 @@ Page({
                 userid:that.data.userid,
                 password:that.data.password,
                 name:res.result[0].name,
-                status:'admin'
+                status:res.result[0].zw
               },
               key: 'userinfo',
             })
