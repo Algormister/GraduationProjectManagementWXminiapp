@@ -9,10 +9,33 @@
 </view>
 
 <view class="container">
-  <!-- 即时通信 -->
+  <!-- 课题申报 -->
+  <!-- 包含申报课题，申报结果 -->
   <view class="uploader">
     <navigator url="../im/im" open-type="navigate" class="uploader-text">
-      <text>teacher</text>
+      <text>课题申报</text>
+    </navigator>
+  </view>
+</view>
+
+<view class="container">
+  <!-- 学生情况 -->
+  <!-- 包括选择学生、学生信息 -->
+  <!-- 之后通过联系方式私下沟通 -->
+  <view class="uploader">
+    <navigator url="../im/im" open-type="navigate" class="uploader-text">
+      <text>学生情况</text>
+    </navigator>
+  </view>
+</view>
+
+<view class="container">
+  <!-- 评阅与答辩 -->
+  <!-- 包括选择审阅论文（这一步可以省略，交给私下沟通）、评阅打分、答辩信息 -->
+  <!-- 审阅论文可以提出修改指导、打分是评阅部分最终给分、答辩是给出时间地点等信息（可以直接用附件） -->
+  <view class="uploader">
+    <navigator url="../im/im" open-type="navigate" class="uploader-text">
+      <text>评阅与答辩</text>
     </navigator>
   </view>
 </view>
