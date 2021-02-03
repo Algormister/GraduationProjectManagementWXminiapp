@@ -1,0 +1,25 @@
+<!--pages/admin/admin.wxml-->
+<view class="top">
+  <image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
+  <view class="userinfo">
+    <text style="font-size:10px;">{{userid}}</text>
+    <text style="font-size:10px;">{{name}}</text>
+  </view>
+  <image class="trimage" mode="aspectFit" src="../../images/index-logout.png" bindtap="logout"></image>
+</view>
+
+<view class="container">
+  <!-- 即时通信 -->
+  <view class="uploader">
+    <navigator url="../im/im" open-type="navigate" class="uploader-text">
+      <text>admin</text>
+    </navigator>
+  </view>
+</view>
+
+<view class="container">
+  <view class="uploader">
+    <button bindtap="mysqltest"></button>
+  </view>
+</view>
+
