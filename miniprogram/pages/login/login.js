@@ -32,6 +32,12 @@ Page({
               url: '../student/student',
             })
           }
+          // console.log(res);
+          let url = '../' + res.data.status + '/' + res.data.status
+          // console.log(url);
+          wx.redirectTo({
+            url: url
+          })
           }, 500)
           // console.log(123);
       }
