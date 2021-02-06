@@ -17,21 +17,6 @@ Page({
       key: 'userinfo',
       success:function(res){
         setTimeout(function () {
-          if(res.data.status=="admin"){
-            wx.redirectTo({
-              url: '../admin/admin',
-            })
-          }
-          else if(res.data.status=="teacher"){
-            wx.redirectTo({
-              url: '../teacher/teacher',
-            })
-          }
-          else if(res.data.status=="student"){
-            wx.redirectTo({
-              url: '../student/student',
-            })
-          }
           // console.log(res);
           let url = '../' + res.data.status + '/' + res.data.status
           // console.log(url);
