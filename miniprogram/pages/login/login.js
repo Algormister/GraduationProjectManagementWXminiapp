@@ -17,8 +17,11 @@ Page({
       key: 'userinfo',
       success:function(res){
         setTimeout(function () {
+          // console.log(res);
+          let url = '../' + res.data.status + '/' + res.data.status
+          // console.log(url);
           wx.redirectTo({
-          url: '../index/index'
+            url: url
           })
           }, 500)
           // console.log(123);
