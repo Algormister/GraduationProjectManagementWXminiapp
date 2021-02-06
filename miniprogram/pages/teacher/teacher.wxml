@@ -12,7 +12,7 @@
   <!-- 课题申报 -->
   <!-- 包含申报课题，申报结果 -->
   <view class="uploader">
-    <navigator url="../im/im" open-type="navigate" class="uploader-text">
+    <navigator url="../ttopic/ttopic" open-type="navigate" class="uploader-text">
       <text>课题申报</text>
     </navigator>
   </view>

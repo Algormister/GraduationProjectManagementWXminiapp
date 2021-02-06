@@ -1,0 +1,22 @@
+<!--pages/ttopic/ttopic.wxml-->
+<!-- <text>pages/ttopic/ttopic.wxml</text>
+<button bindtap="test">test</button> -->
+<page>
+<view class="uploader">
+<form catchsubmit="formSubmit" catchreset="formReset">
+<view class="itemContainer">
+<text class="textMedium label">题目:</text>
+<input value="{{title}}" name="title" placeholder="请输入题目" />
+</view>
+<view class="itemContainer">
+<text>课题申请表:</text>
+<text>{{filename}}</text>
+<button class="btn" bindtap="up">上传</button>
+</view>
+<view class="itemContainer">
+<button class="btn" formType="reset">重置</button>
+<button class="btn" formType="submit">提交</button>
+</view>
+</form>
+</view>
+</page>
