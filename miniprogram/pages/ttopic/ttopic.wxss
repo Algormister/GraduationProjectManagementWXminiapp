@@ -14,11 +14,13 @@ input{
 }
 
 .label{
-  border-bottom:1px solid grey;
+  /* border-bottom:1px solid grey; */
+  width: 200rpx;
+  text-align:center;
 }
 
 .btn{
-  margin:25px 0 0 0 !important;
+  margin:10px 5px 25px 10px;
   padding: 0;
   height: 28px;
   line-height: 28px;
@@ -28,7 +30,29 @@ input{
   background-color: #03a9f4;
   color: #f2f2f2;
 }
-
+.tittext{
+  width: 200rpx;
+}
+.upcontent{
+ display:block;
+ white-space:nowrap;
+ overflow:hidden;
+ text-overflow:ellipsis;
+ width:245rpx;
+ height: 50rpx;
+ border-bottom:1px solid grey;
+}
+.comContainer{
+  display: flex;
+  flex-direction: row;
+  margin-top:20px;
+}
+.titContainer{
+  display: flex;
+  flex-direction: row;
+  margin-top:20px;
+  width:450rpx
+}
 .itemContainer{
   display: flex;
   margin-top:20px;
@@ -37,7 +61,7 @@ input{
 .uploader {
   margin-top: 40rpx;
   height: 140rpx;
-  width: 100%;
+  width: 750rpx;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-left: none;
