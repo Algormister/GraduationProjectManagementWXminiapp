@@ -5,6 +5,7 @@
     "pages/admin/admin",
     "pages/teacher/teacher",
     "pages/ttopic/ttopic",
+    "pages/ttopicres/ttopicres",
     "pages/student/student",
     "pages/test/test",
     "pages/index/index"

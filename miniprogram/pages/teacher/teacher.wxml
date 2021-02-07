@@ -19,6 +19,14 @@
 </view>
 
 <view class="container">
+  <view class="uploader">
+    <navigator url="../ttopicres/ttopicres" open-type="navigate" class="uploader-text">
+      <text>申报结果</text>
+    </navigator>
+  </view>
+</view>
+
+<view class="container">
   <!-- 学生情况 -->
   <!-- 包括选择学生、学生信息 -->
   <!-- 之后通过联系方式私下沟通 -->
