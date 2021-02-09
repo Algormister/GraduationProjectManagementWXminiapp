@@ -1,0 +1,34 @@
+<!--pages/astcon/astcon.wxml-->
+<view class="top">
+  <image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
+  <view class="userinfo">
+    <text style="font-size:10px;">{{userid}}</text>
+    <text style="font-size:10px;">{{name}}</text>
+  </view>
+</view>
+
+<view class="container">
+  <!-- S表-->
+  <view class="uploader">
+    <navigator url="../asinfo/asinfo" open-type="navigate" class="uploader-text">
+      <text>学生信息</text>
+    </navigator>
+  </view>
+</view>
+
+<view class="container">
+  <!-- T表 -->
+  <view class="uploader">
+    <navigator url="../atinfo/atinfo" open-type="navigate" class="uploader-text">
+      <text>教师信息</text>
+    </navigator>
+  </view>
+</view>
+
+<view class="container">
+  <view class="uploader">
+    <button bindtap="mysqltest"></button>
+  </view>
+</view>
+
+

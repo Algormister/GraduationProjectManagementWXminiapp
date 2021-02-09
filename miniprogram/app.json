@@ -3,6 +3,10 @@
     
     "pages/login/login",
     "pages/admin/admin",
+    "pages/astcon/astcon",
+    "pages/asinfo/asinfo",
+    "pages/atinfo/atinfo",
+    "pages/atst/atst",
     "pages/teacher/teacher",
     "pages/ttopic/ttopic",
     "pages/ttopicres/ttopicres",

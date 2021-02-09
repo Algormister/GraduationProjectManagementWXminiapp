@@ -33,7 +33,7 @@
   <!-- 师生信息 -->
   <!-- 打印一下S表、T表、ST表 -->
   <view class="uploader">
-    <navigator url="../im/im" open-type="navigate" class="uploader-text">
+    <navigator url="../astcon/astcon" open-type="navigate" class="uploader-text">
       <text>师生信息</text>
     </navigator>
   </view>

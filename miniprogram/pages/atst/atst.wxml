@@ -1,0 +1,15 @@
+<!--pages/atst/atst.wxml-->
+<view class="top">
+  <image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
+  <view class="userinfo">
+    <text style="font-size:10px;">工号{{id}}</text>
+    <text style="font-size:10px;">指导的学生</text>
+  </view>
+</view>
+<view class="container" wx:for="{{list}}"  wx:key="index">
+  <view class="uploader">
+      <text>姓名：{{item.sname}}</text>
+      <text>学号：{{item.sno}}</text>
+      <text>联系方式（手机号码）：{{item.sphone}}</text>      
+  </view>
+</view>

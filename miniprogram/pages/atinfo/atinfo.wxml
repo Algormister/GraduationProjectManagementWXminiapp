@@ -1,0 +1,15 @@
+<!--pages/atinfo/atinfo.wxml-->
+<view class="top">
+  <image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
+  <view class="userinfo">
+    <text style="font-size:10px;">{{userid}}</text>
+    <text style="font-size:10px;">{{name}}</text>
+  </view>
+</view>
+<view class="container" wx:for="{{list}}"  wx:key="index">
+  <view class="uploader" bindtap="st" data-id='{{item.tno}}'>
+      <text>姓名：{{item.tname}}</text>
+      <text>工号：{{item.tno}}</text>
+      <text>联系方式（手机号码）：{{item.tphone}}</text>      
+  </view>
+</view>
