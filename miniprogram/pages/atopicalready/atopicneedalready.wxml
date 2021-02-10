@@ -1,0 +1,22 @@
+<!--pages/atopicalready/atopicneedalready.wxml-->
+<view class="top">
+  <image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
+  <view class="userinfo">
+    <text style="font-size:10px;">{{userid}}</text>
+    <text style="font-size:10px;">{{name}}</text>
+  </view>
+</view>
+<view class="container" wx:for="{{list}}"  wx:key="index" wx:if="{{item.zt=='1'}}">
+  <view class="uploader">
+      <text>教师：{{item.tname}}</text>
+      <text>题目：{{item.paper}}</text>
+      <text>状态：已通过</text>
+  </view>
+</view>
+<view class="container" wx:for="{{list}}"  wx:key="index" wx:if="{{item.zt=='2'}}">
+  <view class="uploader">
+      <text>教师：{{item.tname}}</text>
+      <text>题目：{{item.paper}}</text>
+      <text>状态：未通过</text>
+  </view>
+</view>

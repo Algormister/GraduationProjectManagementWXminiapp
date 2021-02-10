@@ -23,8 +23,8 @@
   <!-- 信息发布 -->
   <!-- 感觉挺麻烦的，可以不要吧 -->
   <view class="uploader">
-    <navigator url="../im/im" open-type="navigate" class="uploader-text">
-      <text>信息发布</text>
+    <navigator url="../atopic/atopic" open-type="navigate" class="uploader-text">
+      <text>课题审核</text>
     </navigator>
   </view>
 </view>

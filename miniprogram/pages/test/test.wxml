@@ -1,3 +1,4 @@
 <!--pages/test/test.wxml-->
 <text>pages/test/test.wxml</text>
+<web-view src="https://7465-test-3gstj04bdab809db-1304701408.tcb.qcloud.la/161272180057300000001README.md?sign=0128f4b8b5ba4a56f03f1774b210e6bc&t=1612987518"> </web-view>
 <button bindtap="up">上传</button>

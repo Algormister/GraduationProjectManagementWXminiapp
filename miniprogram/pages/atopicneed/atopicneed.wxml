@@ -1,0 +1,19 @@
+<!--pages/atopicneed/atopicneed.wxml-->
+<view class="top">
+  <image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
+  <view class="userinfo">
+    <text style="font-size:10px;">{{userid}}</text>
+    <text style="font-size:10px;">{{name}}</text>
+  </view>
+</view>
+<view  class="container" wx:for="{{list}}"  wx:key="index" wx:if="{{item.zt=='0'}}">
+  <view class="uploader">
+      <text>教师：{{item.tname}}</text>
+      <text>题目：{{item.paper}}</text>
+      <text>状态：审核中</text>
+      <view class="itemContainer">
+      <button class="btn" bindtap="setztnot">未通过</button>
+      <button class="btn" bindtap="setzt">通过</button>
+      </view>
+</view>
+</view>
