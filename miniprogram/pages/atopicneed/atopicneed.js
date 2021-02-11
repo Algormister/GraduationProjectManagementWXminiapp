@@ -12,26 +12,76 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  setzt:function(){
+  setzt:function(e){
+    // 通过（更新）
+    console.log(e)
+    let that = this
     wx.showModal({
       title: '提示',
       content: '是否确认要将状态设置为通过',
       success (res) {
         if (res.confirm) {
-          console.log('用户点击确定')
+          console.log('用户点击确定')    
+           wx.cloud.callFunction({
+           name: 'update',
+           data: {
+            zt: '1',//1为通过
+            tno: e.currentTarget.dataset.tno,
+            paper:e.currentTarget.dataset.paper
+          }
+          }).then(res => {
+          console.log(res.result)
+          //更新后刷新页面
+          wx.cloud.callFunction({
+            name: 'areadtopic',
+          }).then(res => {
+            console.log(res.result)
+            that.setData({
+              list:res.result
+            })
+          })
+          // that.setData({
+          // list:res.result
+          // })
+        })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
       }
     })
   },
-  setztnot:function(){
+  setztnot:function(e){
+    // 未通过（更新）
+    console.log(e)
+    let that = this
     wx.showModal({
       title: '提示',
       content: '是否确认要将状态设置为未通过',
       success (res) {
         if (res.confirm) {
-          console.log('用户点击确定')
+          console.log('用户点击确定')    
+           wx.cloud.callFunction({
+           name: 'update',
+           data: {
+            zt: '2',//2为未通过
+            tno: e.currentTarget.dataset.tno,
+            paper:e.currentTarget.dataset.paper
+          }
+          }).then(res => {
+          console.log(res.result)
+          //更新后刷新页面
+          wx.cloud.callFunction({
+            name: 'areadtopic',
+          }).then(res => {
+            console.log(res.result)
+            that.setData({
+              list:res.result
+            })
+          })
+          // that.setData({
+          // list:res.result
+          // })
+        })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }

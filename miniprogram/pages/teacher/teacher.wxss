@@ -5,7 +5,9 @@ page {
   flex-direction: column;
   justify-content: flex-start;
 }
-
+.col{
+  color:blue;
+}
 .uploader {
   margin-top: 40rpx;
   height: 140rpx;
