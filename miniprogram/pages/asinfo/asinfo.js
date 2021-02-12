@@ -7,7 +7,8 @@ Page({
   data: {
     userid:"",
     name:"",
-    list:""
+    list:"",
+    showLoading: true
   },
 
   /**
@@ -44,6 +45,7 @@ Page({
     }).then(res => {
       console.log(res.result)
       that.setData({
+        showLoading: false,
         list:res.result
       })
     })
