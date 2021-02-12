@@ -6,7 +6,8 @@ Page({
    */
   data: {
     userid:"",
-    password:""
+    password:"",
+    showLoading:false
   },
 
   /**
@@ -122,6 +123,9 @@ Page({
   login:function(){
     let that = this
     // console.log(this.data.password);
+    this.setData({
+      showLoading:true
+    })
     if (this.data.password == "" || this.data.userid == ""){
       wx.showToast({
         title: '请把表单填写完整',
@@ -140,10 +144,12 @@ Page({
       }).then(res => {
         console.log(that.data.userid)
         console.log(res.result)
+        that.setData({
+          showLoading: false
+        })
         if(res.result.length == 1)
         {
           if(that.data.password == res.result[0].password){
-            
             wx.setStorage({
             data: {
                 userid:that.data.userid,

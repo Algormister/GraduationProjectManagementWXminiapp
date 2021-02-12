@@ -52,7 +52,7 @@ Page({
   st:function(e){
     console.log(e)
     wx.navigateTo({
-      url: "/pages/atst/atst?id=" + e.currentTarget.dataset.id ,
+      url: "/pages/atst/atst?name=" + e.currentTarget.dataset.name + '&id=' + e.currentTarget.dataset.id,
    })
   },
   /**

@@ -9,26 +9,14 @@
 
 <view class="container">
   <!-- S表-->
-  <view class="uploader">
     <navigator url="../asinfo/asinfo" open-type="navigate" class="uploader-text">
       <text>学生信息</text>
     </navigator>
-  </view>
 </view>
 
 <view class="container">
   <!-- T表 -->
-  <view class="uploader">
     <navigator url="../atinfo/atinfo" open-type="navigate" class="uploader-text">
       <text>教师信息</text>
     </navigator>
-  </view>
 </view>
-
-<view class="container">
-  <view class="uploader">
-    <button bindtap="mysqltest"></button>
-  </view>
-</view>
-
-

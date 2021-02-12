@@ -6,10 +6,17 @@
     <text style="font-size:10px;">{{name}}</text>
   </view>
 </view>
-<view class="container" wx:for="{{list}}"  wx:key="index">
-  <view class="uploader" bindtap="st" data-id='{{item.tno}}'>
-      <text>姓名：{{item.tname}}</text>
-      <text>工号：{{item.tno}}</text>
-      <text>联系方式（手机号码）：{{item.tphone}}</text>      
-  </view>
+<view>
+	<view class="table">
+		<view class="tr">
+			<view class="th">姓名</view>
+			<view class="th">工号</view>
+			<view class="th">联系方式</view>
+		</view>
+		<view  class="tr" bindtap="st" wx:for="{{list}}" wx:key="index" data-name='{{item.tname}}' data-id="{{item.tno}}">
+			<view class="td">{{item.tname}}</view>
+			<view class="td">{{item.tno}}</view>
+			<view class="td">{{item.tphone}}</view>
+		</view>
+	</view>
 </view>

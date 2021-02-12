@@ -11,47 +11,31 @@
 <view class="container">
   <!-- 课题申报 -->
   <!-- 包含申报课题，申报结果 -->
-  <view class="uploader">
     <navigator url="../ttopic/ttopic" open-type="navigate" class="uploader-text">
-      <text>课题申报</text>
+      <text style="margin-left: 50px;">课题申报</text>
     </navigator>
-  </view>
 </view>
 
 <view class="container">
-  <view class="uploader">
     <navigator url="../ttopicres/ttopicres" open-type="navigate" class="uploader-text">
-      <text>申报结果</text>
+      <text style="margin-left: 50px;">申报结果</text>
     </navigator>
-  </view>
 </view>
 
 <view class="container">
   <!-- 学生情况 -->
   <!-- 包括选择学生、学生信息 -->
   <!-- 之后通过联系方式私下沟通 -->
-  <view class="uploader">
     <navigator url="../tsinfo/tsinfo?id={{userid}}" open-type="navigate" class="uploader-text">
-      <text>学生情况</text>
+      <text style="margin-left: 50px;">学生情况</text>
     </navigator>
-  </view>
 </view>
 
 <view class="container">
   <!-- 评阅与答辩 -->
   <!-- 包括选择审阅论文（这一步可以省略，交给私下沟通）、评阅打分、答辩信息 -->
   <!-- 审阅论文可以提出修改指导、打分是评阅部分最终给分、答辩是给出时间地点等信息（可以直接用附件） -->
-  <view class="uploader">
     <navigator url="../im/im" open-type="navigate" class="uploader-text">
-      <text>评阅与答辩</text>
+      <text style="margin-left: 50px;">评阅与答辩</text>
     </navigator>
-  </view>
 </view>
-
-<view class="container">
-  <view class="uploader">
-    <button bindtap="mysqltest"></button>
-  </view>
-</view>
-
-

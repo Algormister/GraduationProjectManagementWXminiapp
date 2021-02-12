@@ -6,17 +6,22 @@
     <text style="font-size:10px;">{{name}}</text>
   </view>
 </view>
-<view class="container" wx:for="{{list}}"  wx:key="index" wx:if="{{item.zt=='1'}}">
-  <view class="uploader">
-      <text>教师：{{item.tname}}</text>
-      <text>题目：{{item.paper}}</text>
-      <text>状态：已通过</text>
-  </view>
-</view>
-<view class="container" wx:for="{{list}}"  wx:key="index" wx:if="{{item.zt=='2'}}">
-  <view class="uploader">
-      <text>教师：{{item.tname}}</text>
-      <text>题目：{{item.paper}}</text>
-      <text>状态：未通过</text>
-  </view>
+<view>
+	<view class="table">
+		<view class="tr">
+			<view class="th">教师</view>
+			<view class="th">题目</view>
+			<view class="th">状态</view>
+		</view>
+		<view  class="tr" wx:for="{{list}}" wx:key="index" wx:if="{{item.zt=='1'}}">
+			<view class="td">{{item.tname}}</view>
+			<view class="td">{{item.paper}}</view>
+			<view class="td">已通过</view>
+		</view>
+    <view  class="tr" wx:for="{{list}}" wx:key="index" wx:if="{{item.zt=='2'}}">
+			<view class="td">{{item.tname}}</view>
+			<view class="td">{{item.paper}}</view>
+			<view class="td">未通过</view>
+		</view>
+	</view>
 </view>

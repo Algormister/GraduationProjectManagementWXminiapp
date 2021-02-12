@@ -8,40 +8,27 @@
   <image class="trimage" mode="aspectFit" src="../../images/index-logout.png" bindtap="logout"></image>
 </view>
 
-<view class="container">
   <!-- 日期设置 -->
   <!-- 开始和结束时间，包括课题申请、选题 -->
   <!-- 可能要数据库存时间？ -->
-  <view class="uploader">
-    <navigator url="../im/im" open-type="navigate" class="uploader-text">
-      <text>日期设置</text>
-    </navigator>
-  </view>
+<view class="container">
+  <navigator url="../im/im" open-type="navigate" class="uploader-text">
+    <image class="btnimage" src="../../images/icon/riqi.png"></image>
+    <text style="margin-left:50px">日期设置</text>
+  </navigator>
 </view>
 
 <view class="container">
-  <!-- 信息发布 -->
-  <!-- 感觉挺麻烦的，可以不要吧 -->
-  <view class="uploader">
-    <navigator url="../atopic/atopic" open-type="navigate" class="uploader-text">
-      <text>课题审核</text>
-    </navigator>
-  </view>
+  <navigator url="../atopic/atopic" open-type="navigate" class="uploader-text">
+    <image class="btnimage" src="../../images/icon/shenhe.png"></image>
+    <text style="margin-left:50px">课题审核</text>
+  </navigator>
 </view>
 
 <view class="container">
-  <!-- 师生信息 -->
-  <!-- 打印一下S表、T表、ST表 -->
-  <view class="uploader">
-    <navigator url="../astcon/astcon" open-type="navigate" class="uploader-text">
-      <text>师生信息</text>
-    </navigator>
-  </view>
-</view>
-
-<view class="container">
-  <view class="uploader">
-    <button bindtap="mysqltest"></button>
-  </view>
+  <navigator url="../astcon/astcon" open-type="navigate" class="uploader-text">
+    <image class="btnimage" src="../../images/icon/ren.png"></image>
+    <text style="margin-left:50px">师生信息</text>
+  </navigator>
 </view>
 

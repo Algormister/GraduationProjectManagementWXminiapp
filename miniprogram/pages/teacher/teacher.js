@@ -35,20 +35,7 @@ Page({
     })
   },
 
-  mysqltest:function(){
-    let that = this
-    wx.cloud.callFunction({
-      name: 'mysql',
-      data: {
-        e: 'getpassword',
-        userid: '00000000'
-      }
-    }).then(res => {
-      console.log(res.result)
-    }).catch(err => {
-      console.log(err)
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,27 +1,22 @@
 <!--pages/atopic/atopic.wxml-->
 <view class="top">
-  <image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
-  <view class="userinfo">
-    <text style="font-size:10px;">{{userid}}</text>
-    <text style="font-size:10px;">{{name}}</text>
-  </view>
+	<image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
+	<view class="userinfo">
+		<text style="font-size:10px;">{{userid}}</text>
+		<text style="font-size:10px;">{{name}}</text>
+	</view>
 </view>
+
 
 <view class="container">
-
-  <view class="uploader">
-    <navigator url="../atopicneed/atopicneed" open-type="navigate" class="uploader-text">
-      <text>待审核</text>
-    </navigator>
-  </view>
+	<navigator url="../atopicneed/atopicneed" open-type="navigate" class="uploader-text">
+		<text>待审核</text>
+	</navigator>
 </view>
+
 
 <view class="container">
-
-  <view class="uploader">
-    <navigator url="../atopicalready/atopicneedalready" open-type="navigate" class="uploader-text">
-      <text>已审核</text>
-    </navigator>
-  </view>
+	<navigator url="../atopicalready/atopicneedalready" open-type="navigate" class="uploader-text">
+		<text>已审核</text>
+	</navigator>
 </view>
-
