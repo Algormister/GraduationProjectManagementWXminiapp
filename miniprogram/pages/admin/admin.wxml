@@ -32,3 +32,11 @@
   </navigator>
 </view>
 
+<view class="container">
+  <navigator url="./infochange/infochange" open-type="navigate" class="uploader-text">
+    <image class="btnimage" src="../../images/icon/xiugai.png"></image>
+    <text style="margin-left:50px">信息修改</text>
+  </navigator>
+</view>
+
+
