@@ -13,11 +13,21 @@ exports.main = async(event, context) => {
       user: "lt",
       password: "Lengtian123"
     })
-    if (event.e = "getpassword"){               //for login
+    if (event.e == "getpassword"){               //for login
       // console.log(event.userid);
       sql = "SELECT * from user where userid = '" + event.userid + "'"
       const [rows, fields] = await connection.execute(sql)
       return rows;
+    }
+    if (event.e == "addS"){
+      for (let i = 0; i < event.listsname.length; i++)
+      {
+        let sql = 'INSERT INTO `graduation project management`.`s` (`sname`,`sno`,`sphone`) VALUES ("' + event.listsname[i] + '","' + event.listsno[i] + '","' + event.listsphone[i] + '");'
+        await connection.execute(sql)
+        sql = 'INSERT INTO `graduation project management`.`user` (`userid`,`password`,`name`,`zw`) VALUES ("' + event.listsno[i] + '","123456","' + event.listsname[i] + '","student");'
+        await connection.execute(sql)
+      }
+      return 1
     }
     // const [rows, fields] = await connection.execute('SELECT * from admin')
     // return rows;

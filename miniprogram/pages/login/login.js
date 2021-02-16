@@ -143,7 +143,7 @@ Page({
         }
       }).then(res => {
         console.log(that.data.userid)
-        console.log(res.result)
+        console.log(res)
         that.setData({
           showLoading: false
         })
