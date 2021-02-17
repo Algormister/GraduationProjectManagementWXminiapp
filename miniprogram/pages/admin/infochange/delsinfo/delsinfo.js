@@ -1,4 +1,4 @@
-// miniprogram/pages/admin/infochange/addsinfo/addsinfo.js
+// miniprogram/pages/admin/infochange/delsinfo/delsinfo.js
 Page({
 
   /**
@@ -7,10 +7,8 @@ Page({
   data: {
     userid:"",
     name:"",
-    listsname:[""],
-    listsno: [""],
-    listsphone:[""],
-    showLoading: false
+    showLoading: false,
+    listsno: [""]
   },
 
   /**
@@ -79,48 +77,23 @@ Page({
 
   },
   addinput: function(){
-    this.data.listsname.push("")
     this.data.listsno.push("")
-    this.data.listsphone.push("")
     this.setData({
-      listsname: this.data.listsname,
       listsno: this.data.listsno,
-      listsphone: this.data.listsphone
     })
-    // console.log(this.data.listsname);
-    // console.log(this.data.listsno);
-    console.log(this.data.listsphone);
-  },
-  bindsname: function(e){
-    let index = e.currentTarget.dataset.i
-    let tempsname = this.data.listsname
-    tempsname[index] = e.detail.value
-    // console.log(tempsname);
-    
-    this.setData({
-      listsname: tempsname
-    })
+    console.log(this.data.listsno);
   },
   bindsno: function(e){
     let index = e.currentTarget.dataset.i
-    let tempsno = this.data.listsno
-    tempsno[index] = e.detail.value
+    this.data.listsno[index] = e.detail.value
     this.setData({
-      listsno: tempsno
-    })
-  },
-  bindsphone: function(e){
-    let index = e.currentTarget.dataset.i
-    let tempsphone = this.data.listsphone
-    tempsphone[index] = e.detail.value
-    this.setData({
-      listsphone: tempsphone
+      listsno: this.data.listsno
     })
   },
   submit: function(){
     let that = this
     let flag = true
-    console.log(that.data.listsname);
+    console.log(that.data.listsno);
     this.setData({
       showLoading: true
     })
@@ -146,39 +119,26 @@ Page({
       wx.cloud.callFunction({ 
       name: 'mysql',
       data: {
-        e: 'addS',
-        listsname: that.data.listsname,
+        e: 'delS',
         listsno: that.data.listsno,
-        listsphone: that.data.listsphone
       }
       }).then(res => {
-      console.log(res);
+      console.log(res.result);
       that.setData({
         showLoading: false
       })
-      if (res.result != 1)
-      {
-        wx.showToast({
-          title: '提交失败(学号已存在)',
-          icon: 'none',
-          duration: 2000,
-          mask:true
-        })
-      }
-      else{
-        wx.showModal({
-          title: '提交成功',
-          content: '',
-          showCancel: false,//是否显示取消按钮
-          confirmText:"返回",//默认是“确定”
-          confirmColor: 'skyblue',//确定文字的颜色
-          success: function (res) {
-            wx.navigateTo({
-              url: '../infochange',
-            })
-          },
-        })
-      }
+      wx.showModal({
+        title: '提交成功',
+        content: '',
+        showCancel: false,//是否显示取消按钮
+        confirmText:"返回",//默认是“确定”
+        confirmColor: 'skyblue',//确定文字的颜色
+        success: function (res) {
+          wx.navigateTo({
+            url: '../infochange',
+          })
+        },
+      })
       }).catch(err => {
       console.log(err)
       })

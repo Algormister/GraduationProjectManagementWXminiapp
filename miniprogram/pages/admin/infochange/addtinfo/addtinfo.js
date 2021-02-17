@@ -1,4 +1,4 @@
-// miniprogram/pages/admin/infochange/addsinfo/addsinfo.js
+// miniprogram/pages/admin/infochange/addtinfo/addtinfo.js
 Page({
 
   /**
@@ -7,9 +7,9 @@ Page({
   data: {
     userid:"",
     name:"",
-    listsname:[""],
-    listsno: [""],
-    listsphone:[""],
+    listtname: [""],
+    listtno: [""],
+    listtphone: [""],
     showLoading: false
   },
 
@@ -79,54 +79,53 @@ Page({
 
   },
   addinput: function(){
-    this.data.listsname.push("")
-    this.data.listsno.push("")
-    this.data.listsphone.push("")
+    this.data.listtname.push("")
+    this.data.listtno.push("")
+    this.data.listtphone.push("")
     this.setData({
-      listsname: this.data.listsname,
-      listsno: this.data.listsno,
-      listsphone: this.data.listsphone
+      listtname: this.data.listtname,
+      listtno: this.data.listtno,
+      listtphone: this.data.listtphone
     })
-    // console.log(this.data.listsname);
-    // console.log(this.data.listsno);
-    console.log(this.data.listsphone);
+    // console.log(this.data.listtname);
+    // console.log(this.data.listtno);
+    // console.log(this.data.listtphone);
   },
-  bindsname: function(e){
+  bindtname: function(e){
+    // console.log(e);
     let index = e.currentTarget.dataset.i
-    let tempsname = this.data.listsname
-    tempsname[index] = e.detail.value
-    // console.log(tempsname);
-    
+    this.data.listtname[index] = e.detail.value
     this.setData({
-      listsname: tempsname
+      listtname: this.data.listtname
+    })
+    console.log(this.data.listtname);
+  },
+  bindtno: function(e){
+    // console.log(e);
+    let index = e.currentTarget.dataset.i
+    this.data.listtno[index] = e.detail.value
+    this.setData({
+      listtno: this.data.listtno
     })
   },
-  bindsno: function(e){
+  bindtphone: function(e){
+    // console.log(e);
     let index = e.currentTarget.dataset.i
-    let tempsno = this.data.listsno
-    tempsno[index] = e.detail.value
+    this.data.listtphone[index] = e.detail.value
     this.setData({
-      listsno: tempsno
-    })
-  },
-  bindsphone: function(e){
-    let index = e.currentTarget.dataset.i
-    let tempsphone = this.data.listsphone
-    tempsphone[index] = e.detail.value
-    this.setData({
-      listsphone: tempsphone
+      listtphone: this.data.listtphone
     })
   },
   submit: function(){
     let that = this
     let flag = true
-    console.log(that.data.listsname);
+    console.log(that.data.listtname);
     this.setData({
       showLoading: true
     })
-    for (let i = 0; i < that.data.listsno.length; i++)
+    for (let i = 0; i < that.data.listtno.length; i++)
     {
-      if (that.data.listsno[i].length != 8)
+      if (that.data.listtno[i].length != 8)
       {
         flag = false
       }
@@ -136,7 +135,7 @@ Page({
         showLoading: false
       })
       wx.showToast({
-        title: '填写有误(学号为8位)',
+        title: '填写有误(工号为8位)',
         icon: 'none',
         duration: 2000,
         mask:true
@@ -146,20 +145,20 @@ Page({
       wx.cloud.callFunction({ 
       name: 'mysql',
       data: {
-        e: 'addS',
-        listsname: that.data.listsname,
-        listsno: that.data.listsno,
-        listsphone: that.data.listsphone
+        e: 'addT',
+        listtname: that.data.listtname,
+        listtno: that.data.listtno,
+        listtphone: that.data.listtphone
       }
       }).then(res => {
-      console.log(res);
+      console.log(res.result);
       that.setData({
         showLoading: false
       })
       if (res.result != 1)
       {
         wx.showToast({
-          title: '提交失败(学号已存在)',
+          title: '提交失败(工号已存在)',
           icon: 'none',
           duration: 2000,
           mask:true

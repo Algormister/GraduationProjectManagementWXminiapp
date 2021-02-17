@@ -1,0 +1,18 @@
+<!--miniprogram/pages/admin/infochange/deltinfo/deltinfo.wxml-->
+<loading wx:if="{{showLoading}}">加载中</loading>
+<view class="top">
+  <image class="topimage" mode="aspectFit" src="../../../../images/index-top.png"></image>
+  <view class="userinfo" style="right: 20px;">
+    <text style="font-size:10px;">{{userid}}</text>
+    <text style="font-size:10px;">{{name}}</text>
+  </view>
+</view>
+
+<view class="Container" wx:for="{{listtno}}" wx:key="index">
+  <input data-i="{{index}}" bindinput="bindtno" placeholder="请输入要删除老师的工号"></input>
+</view>
+
+<view class="btnContainer">
+  <button class="addbtn" bindtap="addinput">+</button>
+  <button class="confirmbtn" bindtap="submit">确认修改</button>
+</view>

@@ -14,19 +14,19 @@
   </navigator>
 </view>
 <view class="container">
-  <navigator url="" open-type="navigate" class="uploader-text">
+  <navigator url="./delsinfo/delsinfo" open-type="navigate" class="uploader-text">
     <image class="btnimage" src="../../../images/icon/xuesheng.png"></image>
     <text style="margin-left:50px">删除学生信息</text>
   </navigator>
 </view>
 <view class="container">
-  <navigator url="" open-type="navigate" class="uploader-text">
+  <navigator url="./addtinfo/addtinfo" open-type="navigate" class="uploader-text">
     <image class="btnimage" src="../../../images/icon/jiaolian1.png"></image>
     <text style="margin-left:50px">增加老师信息</text>
   </navigator>
 </view>
 <view class="container">
-  <navigator url="" open-type="navigate" class="uploader-text">
+  <navigator url="./deltinfo/deltinfo" open-type="navigate" class="uploader-text">
     <image class="btnimage" src="../../../images/icon/jiaolian1.png"></image>
     <text style="margin-left:50px">删除老师信息</text>
   </navigator>
