@@ -1,4 +1,4 @@
-<view class="container" style="{{containerStyle}}">
+<view class="Container" style="{{containerStyle}}">
   <chatroom
     style="width: 100%; height: 100%"
     envId="{{chatRoomEnvId}}"
@@ -8,5 +8,6 @@
     userInfo="{{userInfo}}"
     onGetUserInfo="{{onGetUserInfo}}"
     getOpenID="{{getOpenID}}"
+    userid="{{userid}}"
   ></chatroom>
 </view>

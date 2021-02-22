@@ -11,6 +11,7 @@
   flex-direction: row;
   border-bottom: 1px solid #ddd;
   padding: 20rpx 0 30rpx;
+  /* padding: 0; */
   font-size: 30rpx;
   /* background: rgb(34, 187, 47);
   color: rgba(255, 255, 255, 1) */

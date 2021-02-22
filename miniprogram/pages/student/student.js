@@ -82,5 +82,23 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  Tochatroom: function(e){
+    let that = this
+    wx.cloud.callFunction({
+      name: 'mysql',
+      data: {
+        e: 'getT',
+        sno: that.data.userid
+      }
+    }).then(res => {
+      console.log(res.result[0].tno);
+      console.log('../im/room/room?id=' + res.result[0].tno + that.data.userid);
+      wx.navigateTo({
+        url: '../im/room/room?id=' + res.result[0].tno + that.data.userid,
+      })
+    }).catch(err => {
+      console.log(err)
+    })
   }
 })

@@ -32,3 +32,9 @@
       <text style="margin-left: 50px;">答辩</text>
     </navigator>
 </view>
+
+<view class="container">
+    <view class="uploader-text" bindtap="Tochatroom">
+      <text style="margin-left: 50px;">聊天室</text>
+    </view>
+</view>

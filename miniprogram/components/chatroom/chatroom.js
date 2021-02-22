@@ -17,6 +17,7 @@ Component({
     getOpenID: {
       type: Function,
     },
+    userid: String
   },
 
   data: {
@@ -170,6 +171,7 @@ Component({
           textContent: e.detail.value,
           sendTime: new Date(),
           sendTimeTS: Date.now(), // fallback
+          userid: this.data.userid
         }
 
         this.setData({
@@ -215,7 +217,7 @@ Component({
             nickName: this.data.userInfo.nickName,
             msgType: 'image',
             sendTime: new Date(),
-            sendTimeTS: Date.now(), // fallback
+            sendTimeTS: Date.now(), // fallback,
           }
 
           this.setData({
