@@ -64,6 +64,16 @@ exports.main = async(event, context) => {
       const [rows, fields] = await connection.execute(sql)
       return rows
     }
+    if (event.e == "getS"){
+      let sql = 'SELECT * FROM `st` WHERE `tno` = "' + event.tno + '"'
+      const [rows, fields] = await connection.execute(sql)
+      return rows
+    }
+    if (event.e == "getsname"){
+      let sql = 'SELECT * FROM `s` WHERE `sno` = "'+ event.sno + '"'
+      const [rows, fields] = await connection.execute(sql)
+      return rows
+    }
     // const [rows, fields] = await connection.execute('SELECT * from admin')
     // return rows;
   } catch (err) {

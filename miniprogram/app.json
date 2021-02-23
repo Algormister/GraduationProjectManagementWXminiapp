@@ -20,7 +20,8 @@
     "pages/admin/infochange/addsinfo/addsinfo",
     "pages/admin/infochange/addtinfo/addtinfo",
     "pages/admin/infochange/delsinfo/delsinfo",
-    "pages/admin/infochange/deltinfo/deltinfo"
+    "pages/admin/infochange/deltinfo/deltinfo",
+    "pages/teacher/chatlist/chatlist"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

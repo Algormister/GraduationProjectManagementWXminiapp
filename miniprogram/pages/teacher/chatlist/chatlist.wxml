@@ -1,0 +1,16 @@
+<!--miniprogram/pages/teacher/chatlist/chatlist.wxml-->
+<loading wx:if="{{showLoading}}">加载中</loading>
+<view class="top">
+  <image class="topimage" mode="aspectFit" src="../../../images/index-top.png"></image>
+  <view class="userinfo" style="right: 20px;">
+    <text style="font-size:10px;">{{userid}}</text>
+    <text style="font-size:10px;">{{name}}</text>
+  </view>
+</view>
+
+<view class="container" wx:for="{{list}}">
+  <view class="uploader-text" data-sno="{{item.sno}}" bindtap="Tochatroom">
+    <image class="btnimage" src="../../../images/icon/xuesheng.png"></image>
+    <text style="margin-left: 50px;">{{item.sname}}</text>
+  </view>
+</view>

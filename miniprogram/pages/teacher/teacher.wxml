@@ -39,3 +39,9 @@
       <text style="margin-left: 50px;">评阅与答辩</text>
     </navigator>
 </view>
+
+<view class="container">
+  <navigator url="./chatlist/chatlist" open-type="navigate" class="uploader-text">
+    <text style="margin-left: 50px;">聊天室</text>
+  </navigator>
+</view>

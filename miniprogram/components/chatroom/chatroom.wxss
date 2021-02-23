@@ -43,7 +43,7 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  margin: 12rpx 0;
+  margin: 30rpx 0;
 }
 
 .body .message.message__self {

@@ -26,15 +26,29 @@ Page({
     wx.getStorage({
       key: 'userinfo',
       success: res =>{ 
-        that.setData({
-          userInfo: {
-            nickname: res.data.name,
-            avatarUrl: this.data.avatarUrl,
-          },
-          logged: true,
-          userid: res.data.userid
-        })
-        console.log(that.data);
+        if (res.data.status == 'teacher')
+        {
+          that.setData({
+            userInfo: {
+              nickname: res.data.name,
+              avatarUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F01%2F60%2F04%2F2857487b0dd637e.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616687496&t=f7a58ce939372a5c28592dd0f162909e',
+            },
+            logged: true,
+            userid: res.data.userid
+          })
+        }
+        else
+        {
+          that.setData({
+            userInfo: {
+              nickname: res.data.name,
+              avatarUrl: this.data.avatarUrl,
+            },
+            logged: true,
+            userid: res.data.userid
+          })
+          console.log(res);
+        }
       }
     })
     
