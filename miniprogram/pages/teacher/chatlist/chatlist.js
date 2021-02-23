@@ -109,7 +109,7 @@ Page({
 
   },
   Tochatroom: function(e){
-    console.log(e);
+    // console.log(e);
     let that = this
     let sno = e.currentTarget.dataset.sno
     wx.navigateTo({

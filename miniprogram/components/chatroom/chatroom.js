@@ -11,12 +11,12 @@ Component({
     groupId: String,
     groupName: String,
     userInfo: Object,
-    onGetUserInfo: {
-      type: Function,
-    },
-    getOpenID: {
-      type: Function,
-    },
+    // onGetUserInfo: {
+    //   type: Function,
+    // },
+    // getOpenID: {
+    //   type: Function,
+    // },
     userid: String
   },
 
@@ -30,13 +30,13 @@ Component({
   },
 
   methods: {
-    onGetUserInfo(e) {
-      this.properties.onGetUserInfo(e)
-    },
+    // onGetUserInfo(e) {
+    //   this.properties.onGetUserInfo(e)
+    // },
 
-    getOpenID() { 
-      return this.properties.getOpenID() 
-    },
+    // getOpenID() { 
+    //   return this.properties.getOpenID() 
+    // },
 
     mergeCommonCriteria(criteria) {
       return {
@@ -47,7 +47,7 @@ Component({
 
     async initRoom() {
       this.try(async () => {
-        await this.initOpenID()
+        // await this.initOpenID()
 
         const { envId, collection } = this.properties
         this.db = wx.cloud.database({
@@ -71,15 +71,15 @@ Component({
       }, '初始化失败')
     },
 
-    async initOpenID() {
-      return this.try(async () => {
-        const openId = await this.getOpenID()
+    // async initOpenID() {
+    //   return this.try(async () => {
+    //     const openId = await this.getOpenID()
 
-        this.setData({
-          openId,
-        })
-      }, '初始化 openId 失败')
-    },
+    //     this.setData({
+    //       openId,
+    //     })
+    //   }, '初始化 openId 失败')
+    // },
 
     async initWatch(criteria) {
       this.try(() => {

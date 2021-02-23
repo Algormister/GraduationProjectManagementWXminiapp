@@ -8,7 +8,8 @@ Page({
     id:"",
     userid:"",
     name:"",
-    list:""
+    list:"",
+    showLoading: true
   },
   
   /**
@@ -52,7 +53,8 @@ Page({
     }).then(res => {
       console.log(res.result)
       that.setData({
-        list:res.result
+        list:res.result,
+        showLoading: false
       })
     })
   },

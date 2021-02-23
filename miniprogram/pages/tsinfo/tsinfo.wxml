@@ -1,16 +1,31 @@
 <!--pages/tsinfo/tsinfo.wxml-->
+<loading wx:if="{{showLoading}}">加载中</loading>
 <view class="top">
   <image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
-  <view class="userinfo">
+  <view class="userinfo" style="right: 20px">
     <text style="font-size:10px;">{{userid}}</text>
     <text style="font-size:10px;">{{name}}</text>
   </view>
 </view>
-<view class="container" wx:for="{{list}}"  wx:key="index">
-  <view class="uploader">
-      <text>姓名：{{item.sname}}</text>
-      <text>学号：{{item.sno}}</text>
-      <text>联系方式（手机号码）：{{item.sphone}}</text>
-      <text>状态：{{item.state}}</text>     
-  </view>
+<!-- <view class="Container" wx:for="{{list}}"  wx:key="index">
+  <text>姓名：{{item.sname}}</text>
+  <text>学号：{{item.sno}}</text>
+  <text>联系方式（手机号码）：{{item.sphone}}</text>
+  <text>状态：{{item.state}}</text>     
+</view> -->
+<view>
+	<view class="table">
+		<view class="tr">
+			<view class="th">姓名</view>
+			<view class="th">学号</view>
+      <view class="th">联系方式</view>
+      <!-- <view class="th">状态</view> -->
+		</view>
+		<view  class="tr" wx:for="{{list}}" wx:key="index">
+			<view class="td">{{item.sname}}</view>
+			<view class="td">{{item.sno}}</view>
+      <view class="td">{{item.sphone}}</view>
+      <!-- <view class="td">{{item.state}}</view> -->
+		</view>
+	</view>
 </view>
