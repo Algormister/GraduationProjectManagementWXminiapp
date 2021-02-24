@@ -11,30 +11,34 @@
 <view class="container">
   <!-- 选题 -->
   <!-- 包含可申报课题（展示）、选择课题、结果公布（这一步取得导师信息） -->
-    <navigator url="../im/im" open-type="navigate" class="uploader-text">
-      <text style="margin-left: 50px;">课题选择</text>
-    </navigator>
+  <navigator url="../im/im" open-type="navigate" class="uploader-text">
+    <image class="btnimage" src="../../images/icon/keti.png"></image>
+    <text style="margin-left: 50px;">课题选择</text>
+  </navigator>
 </view>
 
 <view class="container">
   <!-- 论文提交 -->
   <!-- 包含提交论文（可修改？）、导师建议、结果（学生可能不知道？） -->
-    <navigator url="../im/im" open-type="navigate" class="uploader-text">
-      <text style="margin-left: 50px;">论文提交</text>
-    </navigator>
+  <navigator url="../im/im" open-type="navigate" class="uploader-text">
+    <image class="btnimage" src="../../images/icon/tijiao.png"></image>
+    <text style="margin-left: 50px;">论文提交</text>
+  </navigator>
 </view>
 
 <view class="container">
   <!-- 答辩 -->
   <!-- 包括答辩信息 -->
   <!-- 给出时间地点等信息（可以直接用附件） -->
-    <navigator url="../im/im" open-type="navigate" class="uploader-text">
-      <text style="margin-left: 50px;">答辩</text>
-    </navigator>
+  <navigator url="../im/im" open-type="navigate" class="uploader-text">
+    <image class="btnimage" src="../../images/icon/dabian.png"></image>
+    <text style="margin-left: 50px;">答辩</text>
+  </navigator>
 </view>
 
 <view class="container">
-    <view class="uploader-text" bindtap="Tochatroom">
-      <text style="margin-left: 50px;">聊天室</text>
-    </view>
+  <view class="uploader-text" bindtap="Tochatroom">
+    <image class="btnimage" src="../../images/icon/liaotianshi.png"></image>
+    <text style="margin-left: 50px;">聊天室</text>
+  </view>
 </view>

@@ -90,33 +90,25 @@ Page({
     })
   },
 
-  getOpenID: async function() {
-    // if (this.openid) {
-    //   return this.openid
-    // }
-    // const { result } = await wx.cloud.callFunction({
-    //   name: 'login',
-    // })
-    // return result.openid
-    while(true){
-      if (this.data.userid != '')
-      {
-        console.log(this.data.userid);
-        break
-      }
-    }
-    return this.data.userid
-  },
+  // getOpenID: async function() {
+  //   if (this.openid) {
+  //     return this.openid
+  //   }
+  //   const { result } = await wx.cloud.callFunction({
+  //     name: 'login',
+  //   })
+  //   return result.openid
+  // },
 
-  onGetUserInfo: function(e) {
-    if (!this.logged && e.detail.userInfo) {
-      this.setData({
-        logged: true,
-        avatarUrl: e.detail.userInfo.avatarUrl,
-        userInfo: e.detail.userInfo
-      })
-    }
-  },
+  // onGetUserInfo: function(e) {
+  //   if (!this.logged && e.detail.userInfo) {
+  //     this.setData({
+  //       logged: true,
+  //       avatarUrl: e.detail.userInfo.avatarUrl,
+  //       userInfo: e.detail.userInfo
+  //     })
+  //   }
+  // },
 
   onShareAppMessage() {
     return {
