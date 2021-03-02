@@ -4,7 +4,9 @@ App({
     datestart:'',
     dateend: '',
     timestart: '00:00',
-    timeend: '00:00'
+    timeend: '00:00',
+    currentdate: '',
+    currenttime: '00:00'
   },
   onLaunch: function () {
     if (!wx.cloud) {
@@ -20,8 +22,43 @@ App({
       })
     }
     let date = new Date()
+    let datestr = date.getFullYear() + '-' + this.getmonth(date) + '-' + this.getdate(date)
+    this.globalData.currentdate = datestr
+    wx.cloud.callFunction({
+      name: 'mysql',
+      data: {
+        e: 'gettime',
+      }
+    }).then(res => {
+      // console.log(res);
+      this.globalData.datestart = res.result[0].datestart
+      this.globalData.dateend = res.result[0].dateend
+      this.globalData.timestart = res.result[0].timestart
+      this.globalData.timeend = res.result[0].timeend
+      // console.log(this.globalData.datestart);
+    }).catch(err =>{
+      console.log(err);
+    })
+  },
+  getmonth(date){
     let month = date.getMonth() + 1
-    this.globalData.datestart = date.getFullYear() + '-' + month.toString() + '-' + date.getDate()
-    this.globalData.dateend = date.getFullYear() + '-' + month.toString() + '-' + date.getDate()
+    let monthstr = ''
+    if (month < 10){
+      monthstr = '0' + month.toString()
+    }
+    else{
+      monthstr = month.toString()
+    }
+    return monthstr
+  },
+  getdate(date){
+    let datestr = ''
+    if (date.getDate() < 10){
+      datestr = '0' + date.getDate()
+    }
+    else{
+      datestr = date.getDate()
+    }
+    return datestr
   }
 })

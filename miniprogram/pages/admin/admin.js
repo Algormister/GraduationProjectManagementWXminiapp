@@ -11,7 +11,8 @@ Page({
       datestart:'',
       dateend:'',
       timestart:'',
-      timeend: ''
+      timeend: '',
+      showLoading: false
   },
 
   /**
@@ -55,10 +56,10 @@ Page({
     wx.hideHomeButton()
     let app = getApp()
     this.setData({
-      datestart:app.globalData.datestart,
-      dateend: app.globalData.dateend,
-      timestart: app.globalData.timestart,
-      timeend: app.globalData.timeend
+      datestart:app.globalData.currentdate,
+      dateend: app.globalData.currentdate,
+      timestart: app.globalData.currenttime,
+      timeend: app.globalData.currenttime
     })
     // console.log(this.data.datestart);
   },
@@ -100,6 +101,68 @@ Page({
   show(){
     this.setData({
       show: !this.data.show
+    })
+  },
+  close(){
+    this.setData({
+      show: false
+    })
+  },
+  changedatestart(e){
+    console.log(e);
+    this.setData({
+      datestart: e.detail.value
+    })
+  },
+  changedateend(e){
+    this.setData({
+      dateend: e.detail.value
+    })
+  },
+  changetimestart(e){
+    this.setData({
+      timestart: e.detail.value
+    })
+  },
+  changetimeend(e){
+    this.setData({
+      timeend: e.detail.value
+    })
+  },
+  confirm(){
+    let that = this
+    let app = getApp()
+    app.globalData.datestart = this.data.datestart
+    app.globalData.dateend = this.data.dateend
+    app.globalData.timestart = this.data.timestart
+    app.globalData.timeend = this.data.timeend
+    console.log(app.globalData.datestart);
+    this.setData({
+      show: false,
+      showLoading: true
+    })
+    wx.cloud.callFunction({
+      name: 'mysql',
+      data: {
+        e: 'inittime',
+        datestart: that.data.datestart,
+        timestart: that.data.timestart,
+        dateend: that.data.dateend,
+        timeend: that.data.timeend
+      }
+    }).then(res => {
+      console.log(res);
+      wx.showToast({
+        title: '设置成功',
+        icon: 'none',
+        duration: 2000,
+        mask:true
+      })
+      that.setData({
+        showLoading: false
+      })
+    }).catch(err => {
+      console.log(err);
     })
   }
 })

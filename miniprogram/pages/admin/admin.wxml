@@ -1,4 +1,5 @@
 <!--pages/admin/admin.wxml-->
+<loading wx:if="{{showLoading}}">提交中</loading>
 <view class="top">
   <image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
   <view class="userinfo">
@@ -18,20 +19,20 @@
   </view>
 </view>
 
-<view class="{{show? 'showcontainer bg': 'showcontainer'}}"  bindtap="show"></view>
+<view class="{{show? 'showcontainer bg': 'showcontainer'}}"  bindtap="close"></view>
 <view class="{{show?'Container show': 'Container'}}">
   <text class="textLarge" style="font-weight: 900; margin:0 0 20px 20px; align-self: flex-start;">日期设置</text>
   <view class="pickercontainer">
     <text>开始时间：</text>
-    <picker mode="date" >{{datestart}}</picker>
+    <picker mode="date" value="{{datestart}}" bindchange="changedatestart">{{datestart}}</picker>
     <text decode="{{true}}">&nbsp;&nbsp;</text>
-    <picker mode="time" >{{timestart}}</picker>
+    <picker mode="time" value="{{timestart}}" bindchange="changetimestart">{{timestart}}</picker>
   </view>
   <view class="pickercontainer">
     <text>结束时间：</text>
-    <picker mode="date" >{{dateend}}</picker>
+    <picker mode="date" value="{{dateend}}" bindchange="changedateend">{{dateend}}</picker>
     <text decode="{{true}}">&nbsp;&nbsp;</text>
-    <picker mode="time" >{{timeend}}</picker>
+    <picker mode="time" value="{{timeend}}" bindchange="changetimeend">{{timeend}}</picker>
   </view>
   <button class="btn" bindtap="confirm">确认</button>
 </view>

@@ -74,6 +74,16 @@ exports.main = async(event, context) => {
       const [rows, fields] = await connection.execute(sql)
       return rows
     }
+    if (event.e == "gettime"){
+      let sql = 'SELECT * FROM time'
+      const [rows, fields] = await connection.execute(sql)
+      return rows
+    }
+    if (event.e == "inittime"){
+      let sql = "UPDATE `graduation project management`.`time` SET `datestart`='" + event.datestart + "',`timestart`='" + event.timestart + "',`dateend`='" + event.dateend + "',`timeend`='" + event.timeend + "' WHERE `id`=0;"
+      await connection.execute(sql)
+      return 1
+    }
     // const [rows, fields] = await connection.execute('SELECT * from admin')
     // return rows;
   } catch (err) {

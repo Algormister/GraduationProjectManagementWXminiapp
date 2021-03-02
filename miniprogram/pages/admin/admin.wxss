@@ -17,6 +17,7 @@ page {
   height: 100%;
   background-color: transparent;
   overflow: hidden;
+  z-index: -1;
 }
 .showcontainer.bg{
   background-color: rgba(0, 0, 0, .3);

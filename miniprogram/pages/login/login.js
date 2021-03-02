@@ -7,17 +7,26 @@ Page({
   data: {
     userid:"",
     password:"",
-    showLoading:false
+    showLoading:false,
+    currentdate:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let app = getApp()
+    let date = new Date()
+    let that = this
+    this.setData({
+      currentdate: date.getFullYear() + '-' + app.getmonth(date) + '-' + app.getdate(date)
+    })
+    // console.log(this.data.currentdate);
     wx.getStorage({
       key: 'userinfo',
       success:function(res){
-        setTimeout(function () {
+        if (new Date(app.globalData.datestart) <= new Date(that.data.currentdate) && new Date(app.globalData.dateend) >= new Date(that.data.currentdate)){
+          setTimeout(function () {
           // console.log(res);
           let url = '../' + res.data.status + '/' + res.data.status
           // console.log(url);
@@ -26,20 +35,26 @@ Page({
           })
           }, 500)
           // console.log(123);
+        }
+        else if (res.data.status == 'admin')
+        {
+          setTimeout(function () {
+            let url = '../' + res.data.status + '/' + res.data.status
+            wx.redirectTo({
+              url: url
+            })
+            }, 500)
+        }
+        else{
+          wx.showToast({
+            title: '系统暂未开放',
+            icon: 'none',
+            duration: 2000,
+            mask:true
+          })
+        }
       }
     })
-    // let that = this;
-    // wx.request({
-    //   url: 'http://localhost:3306',
-    //   data: {
-    //   },
-    //   success(res) {
-    //     console.log(res);
-    //     that.setData({
-    //       list: res.data
-    //     })
-    //   }
-    // })
   },
 
   /**
@@ -53,16 +68,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // let app = getApp()
-    // // console.log(app.globalData.userstatus);
-    // if (app.globalData.userstatus != undefined)
-    // {
-    //   setTimeout(function () {
-    //   wx.redirectTo({
-    //   url: '../index/index'
-    //   })
-    //   }, 1000)
-    // }
+    
   },
 
   /**
@@ -122,6 +128,7 @@ Page({
   },
   login:function(){
     let that = this
+    let app = getApp()
     // console.log(this.data.password);
     this.setData({
       showLoading:true
@@ -147,7 +154,7 @@ Page({
         that.setData({
           showLoading: false
         })
-        if(res.result.length == 1)
+        if(res.result.length == 1 && new Date(app.globalData.datestart) <= new Date(that.data.currentdate) && new Date(app.globalData.dateend) >= new Date(that.data.currentdate) || res.result[0].zw == 'admin')
         {
           if(that.data.password == res.result[0].password){
             wx.setStorage({
@@ -201,7 +208,7 @@ Page({
         }
         else{
           wx.showToast({
-            title: '学工号或密码错误',
+            title: '学工号或密码错误或系统未开放',
             icon: 'none',
             duration: 2000,
             mask:true
