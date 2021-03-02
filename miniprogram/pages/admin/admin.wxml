@@ -12,10 +12,28 @@
   <!-- 开始和结束时间，包括课题申请、选题 -->
   <!-- 可能要数据库存时间？ -->
 <view class="container">
-  <navigator url="../im/im" open-type="navigate" class="uploader-text">
+  <view class="uploader-text" bindtap="show">
     <image class="btnimage" src="../../images/icon/riqi.png"></image>
     <text style="margin-left:50px">日期设置</text>
-  </navigator>
+  </view>
+</view>
+
+<view class="{{show? 'showcontainer bg': 'showcontainer'}}"  bindtap="show"></view>
+<view class="{{show?'Container show': 'Container'}}">
+  <text class="textLarge" style="font-weight: 900; margin:0 0 20px 20px; align-self: flex-start;">日期设置</text>
+  <view class="pickercontainer">
+    <text>开始时间：</text>
+    <picker mode="date" >{{datestart}}</picker>
+    <text decode="{{true}}">&nbsp;&nbsp;</text>
+    <picker mode="time" >{{timestart}}</picker>
+  </view>
+  <view class="pickercontainer">
+    <text>结束时间：</text>
+    <picker mode="date" >{{dateend}}</picker>
+    <text decode="{{true}}">&nbsp;&nbsp;</text>
+    <picker mode="time" >{{timeend}}</picker>
+  </view>
+  <button class="btn" bindtap="confirm">确认</button>
 </view>
 
 <view class="container">

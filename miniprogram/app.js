@@ -1,7 +1,10 @@
 //app.js
 App({
   globalData:{
-    
+    datestart:'',
+    dateend: '',
+    timestart: '00:00',
+    timeend: '00:00'
   },
   onLaunch: function () {
     if (!wx.cloud) {
@@ -16,7 +19,9 @@ App({
         traceUser: true,
       })
     }
-
-    this.globalData = {}
+    let date = new Date()
+    let month = date.getMonth() + 1
+    this.globalData.datestart = date.getFullYear() + '-' + month.toString() + '-' + date.getDate()
+    this.globalData.dateend = date.getFullYear() + '-' + month.toString() + '-' + date.getDate()
   }
 })

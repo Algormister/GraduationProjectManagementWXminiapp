@@ -12,7 +12,8 @@ Page({
     filename:"",
     fileID:"",
     list:"",
-    status:""
+    status:"",
+    showLoading: true
   },
 
   /**
@@ -56,6 +57,7 @@ Page({
       }
     }).then(res => { 
       that.setData({
+        showLoading: false,
         list:res.result
       })
       console.log(res.result)

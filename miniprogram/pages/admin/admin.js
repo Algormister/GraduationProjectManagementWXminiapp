@@ -6,7 +6,12 @@ Page({
    */
   data: {
       userid:"",
-      name:""
+      name:"",
+      show: false,
+      datestart:'',
+      dateend:'',
+      timestart:'',
+      timeend: ''
   },
 
   /**
@@ -25,6 +30,7 @@ Page({
       }
     })
     // console.log(this.data.userid);
+    
   },
   logout:function(){
     wx.removeStorage({
@@ -47,6 +53,14 @@ Page({
    */
   onShow: function () {
     wx.hideHomeButton()
+    let app = getApp()
+    this.setData({
+      datestart:app.globalData.datestart,
+      dateend: app.globalData.dateend,
+      timestart: app.globalData.timestart,
+      timeend: app.globalData.timeend
+    })
+    // console.log(this.data.datestart);
   },
 
   /**
@@ -82,5 +96,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  show(){
+    this.setData({
+      show: !this.data.show
+    })
   }
 })

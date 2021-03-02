@@ -4,5 +4,61 @@ page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  position: relative;
+  height: 100%;
+  /* background-color: green; */
+}
+
+.showcontainer{
+  position: absolute;
+  top:0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  overflow: hidden;
+}
+.showcontainer.bg{
+  background-color: rgba(0, 0, 0, .3);
+  z-index: 9;
+}
+
+.Container{
+  position: absolute;
+  height:200px;
+  background-color:white;
+  bottom:-800px;
+  left: 0px;
+  right: 0px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: all 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.show{
+  bottom: 0px;
+  z-index: 10;
+}
+
+.pickercontainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.btn{
+  align-self: flex-end;
+  margin:5px 50px 0 0 !important;
+  padding: 0;
+  height: 28px;
+  line-height: 28px;
+  width: 50px !important;
+  font-size:12px !important;
+  border-radius: 8px;
+  background-color: #03a9f4;
+  color: #f2f2f2;
 }
 
