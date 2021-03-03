@@ -21,24 +21,19 @@ App({
         traceUser: true,
       })
     }
-    let date = new Date()
-    let datestr = date.getFullYear() + '-' + this.getmonth(date) + '-' + this.getdate(date)
-    this.globalData.currentdate = datestr
-    wx.cloud.callFunction({
-      name: 'mysql',
-      data: {
-        e: 'gettime',
-      }
-    }).then(res => {
-      // console.log(res);
-      this.globalData.datestart = res.result[0].datestart
-      this.globalData.dateend = res.result[0].dateend
-      this.globalData.timestart = res.result[0].timestart
-      this.globalData.timeend = res.result[0].timeend
-      // console.log(this.globalData.datestart);
-    }).catch(err =>{
-      console.log(err);
-    })
+    // this.getdata().then(res => {
+    //   let date = new Date()
+    //   let datestr = date.getFullYear() + '-' + this.getmonth(date) + '-' + this.getdate(date)
+    //   this.globalData.currentdate = datestr
+    //   // console.log(res);
+    //   this.globalData.datestart = res.result[0].datestart
+    //   this.globalData.dateend = res.result[0].dateend
+    //   this.globalData.timestart = res.result[0].timestart
+    //   this.globalData.timeend = res.result[0].timeend
+    //   console.log(this.globalData.datestart);
+    // }).catch(err => {
+    //   console.log(err);
+    // })
   },
   getmonth(date){
     let month = date.getMonth() + 1
@@ -60,5 +55,19 @@ App({
       datestr = date.getDate()
     }
     return datestr
+  },
+  getdata(){
+    return new Promise((resolve, reject) => {
+      wx.cloud.callFunction({
+        name: 'mysql',
+        data: {
+          e: 'gettime',
+        }
+      }).then(res => {
+        resolve(res)
+      }).catch(err =>{ 
+        reject(err)
+      })
+    })
   }
 })

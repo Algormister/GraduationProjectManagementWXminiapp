@@ -14,8 +14,22 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     let app = getApp()
+    await app.getdata().then(res => {
+      let date = new Date()
+      let datestr = date.getFullYear() + '-' + app.getmonth(date) + '-' + app.getdate(date)
+      app.globalData.currentdate = datestr
+      // console.log(res);
+      app.globalData.datestart = res.result[0].datestart
+      app.globalData.dateend = res.result[0].dateend
+      app.globalData.timestart = res.result[0].timestart
+      app.globalData.timeend = res.result[0].timeend
+      console.log(app.globalData.datestart);
+    }).catch(err => {
+      console.log(err);
+    })
+    console.log(123);
     let date = new Date()
     let that = this
     this.setData({
