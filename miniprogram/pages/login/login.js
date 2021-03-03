@@ -154,6 +154,20 @@ Page({
         that.setData({
           showLoading: false
         })
+        if(res.result.length != 1){
+          wx.showToast({
+            title: '学工号或密码错误',
+            icon: 'none',
+            duration: 2000,
+            mask:true
+          })
+          that.setData({
+            userid:"",
+            password:""
+          })
+        }
+        else
+        {
         if(res.result.length == 1 && new Date(app.globalData.datestart) <= new Date(that.data.currentdate) && new Date(app.globalData.dateend) >= new Date(that.data.currentdate) || res.result[0].zw == 'admin')
         {
           if(that.data.password == res.result[0].password){
@@ -218,6 +232,7 @@ Page({
             password:""
           })
         }
+      }
       }).catch(err => {
         console.log(err)
       })
