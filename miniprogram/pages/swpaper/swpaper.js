@@ -1,4 +1,4 @@
-// pages/ttopic/ttopic.js
+// pages/swpaper/swpaper.js
 Page({
 
   /**
@@ -7,23 +7,10 @@ Page({
   data: {
     userid:"",
     name:"",
-    title:"",
     path:"",
     filename:"",
     fileID:""
   },
-  // test:function(){
-  //   wx.cloud.callFunction({
-  //     name: 'topicwri',
-  //     data: {
-  //       tno: that.data.userid,
-  //       paper:'test'
-  //     }
-  //   }).then(res =>{
-  //     console.log("2")
-  //     console.log(res.result)
-  //   })
-  // },
   up:function(){
     let that = this
     wx.chooseMessageFile({
@@ -45,12 +32,9 @@ Page({
     })
   },
   formSubmit:function(e){
-     this.setData({
-      title:e.detail.value.title
-    })
     var that = this
     let err = false
-    if (this.data.title == "" || this.data.path == ""){
+    if ( this.data.path == ""){
       wx.showToast({
         title: '请把表单填写完整',
         icon: 'none',
@@ -72,11 +56,10 @@ Page({
           fileID:res.fileID
         })
         wx.cloud.callFunction({
-      name: 'topicwri',
+      name: 'spaperupdate',
       data: {
-        tno: that.data.userid,
-        paper:that.data.title,
-        intro:that.data.fileID
+        sno: that.data.userid,
+        paper:that.data.fileID
       }
     }).then(res =>{
       console.log(res)
@@ -104,7 +87,6 @@ Page({
         })
       }
       that.setData({
-        title:"",
         path:"",
         filename:"",
         fileID:"",

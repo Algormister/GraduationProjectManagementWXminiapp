@@ -1,0 +1,27 @@
+<!--pages/swpaper/swpaper.wxml-->
+<page>
+<view class="top">
+  <image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
+  <view class="userinfo">
+    <text style="font-size:10px;">{{userid}}</text>
+    <text style="font-size:10px;">{{name}}</text>
+  </view>
+</view>
+<view class="uploader">
+<form catchsubmit="formSubmit" catchreset="formReset">
+<view class="comContainer">
+<view class="titContainer">
+<text class="tittext">论文附件:</text>
+<text class="upcontent">{{filename}}</text>
+</view>
+<view>
+<button class="btn" bindtap="up">上传</button>
+</view>
+</view>
+<view class="itemContainer">
+<button class="btn" formType="reset">重置</button>
+<button class="btn" formType="submit">提交</button>
+</view>
+</form>
+</view>
+</page>

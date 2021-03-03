@@ -14,6 +14,7 @@
     "pages/ttopicres/ttopicres",
     "pages/tsinfo/tsinfo",
     "pages/student/student",
+    "pages/swpaper/swpaper",
     "pages/test/test",
     "pages/index/index",
     "pages/admin/infochange/infochange",
@@ -22,6 +23,7 @@
     "pages/admin/infochange/delsinfo/delsinfo",
     "pages/admin/infochange/deltinfo/deltinfo",
     "pages/teacher/chatlist/chatlist"
+
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
