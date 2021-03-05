@@ -25,7 +25,6 @@
 </view>
 </view>
 <view class="itemContainer">
-<button class="btn" formType="reset">重置</button>
 <button class="btn" formType="submit">提交</button>
 </view>
 </form>
