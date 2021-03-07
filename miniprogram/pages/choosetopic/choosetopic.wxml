@@ -1,0 +1,26 @@
+<!--pages/atopicalready/atopicneedalready.wxml-->
+<loading wx:if="{{showLoading}}">加载中</loading>
+<view class="top">
+  <image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
+  <view class="userinfo" style="right: 20px;">
+    <text style="font-size:10px;">{{userid}}</text>
+    <text style="font-size:10px;">{{name}}</text>
+  </view>
+</view>
+<view>
+	<view class="table">
+		<view class="tr">
+			<view class="th">教师</view>
+			<view class="th">题目</view>
+			<view class="th">选择一个课题</view>
+		</view>
+		<view  class="tr" wx:for="{{list}}" wx:key="index" wx:if="{{item.zt=='1'}}">
+			<view class="td">{{item.tname}}</view>
+			<view class="td">{{item.paper}}</view>
+			<view class="td">
+			<button class="btn" bindtap="setzt" data-tno="{{item.tno}}" data-paper="{{item.paper}}">选择</button>
+			</view>	
+		</view>
+  
+	</view>
+</view>
