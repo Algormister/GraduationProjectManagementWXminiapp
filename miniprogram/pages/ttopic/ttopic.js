@@ -12,18 +12,18 @@ Page({
     filename:"",
     fileID:""
   },
-  test:function(){
-    wx.cloud.callFunction({
-      name: 'topicwri',
-      data: {
-        tno: '00000001',
-        paper:'test'
-      }
-    }).then(res =>{
-      console.log("2")
-      console.log(res.result)
-    })
-  },
+  // test:function(){
+  //   wx.cloud.callFunction({
+  //     name: 'topicwri',
+  //     data: {
+  //       tno: that.data.userid,
+  //       paper:'test'
+  //     }
+  //   }).then(res =>{
+  //     console.log("2")
+  //     console.log(res.result)
+  //   })
+  // },
   up:function(){
     let that = this
     wx.chooseMessageFile({

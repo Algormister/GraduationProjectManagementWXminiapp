@@ -14,8 +14,22 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     let app = getApp()
+    await app.getdata().then(res => {
+      let date = new Date()
+      let datestr = date.getFullYear() + '-' + app.getmonth(date) + '-' + app.getdate(date)
+      app.globalData.currentdate = datestr
+      // console.log(res);
+      app.globalData.datestart = res.result[0].datestart
+      app.globalData.dateend = res.result[0].dateend
+      app.globalData.timestart = res.result[0].timestart
+      app.globalData.timeend = res.result[0].timeend
+      console.log(app.globalData.datestart);
+    }).catch(err => {
+      console.log(err);
+    })
+    console.log(123);
     let date = new Date()
     let that = this
     this.setData({
@@ -154,6 +168,20 @@ Page({
         that.setData({
           showLoading: false
         })
+        if(res.result.length != 1){
+          wx.showToast({
+            title: '学工号或密码错误',
+            icon: 'none',
+            duration: 2000,
+            mask:true
+          })
+          that.setData({
+            userid:"",
+            password:""
+          })
+        }
+        else
+        {
         if(res.result.length == 1 && new Date(app.globalData.datestart) <= new Date(that.data.currentdate) && new Date(app.globalData.dateend) >= new Date(that.data.currentdate) || res.result[0].zw == 'admin')
         {
           if(that.data.password == res.result[0].password){
@@ -218,6 +246,7 @@ Page({
             password:""
           })
         }
+      }
       }).catch(err => {
         console.log(err)
       })

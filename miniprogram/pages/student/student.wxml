@@ -20,7 +20,7 @@
 <view class="container">
   <!-- 论文提交 -->
   <!-- 包含提交论文（可修改？）、导师建议、结果（学生可能不知道？） -->
-  <navigator url="../im/im" open-type="navigate" class="uploader-text">
+  <navigator url="../swpaper/swpaper" open-type="navigate" class="uploader-text">
     <image class="btnimage" src="../../images/icon/tijiao.png"></image>
     <text style="margin-left: 50px;">论文提交</text>
   </navigator>
