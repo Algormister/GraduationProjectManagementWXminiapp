@@ -9,11 +9,11 @@
 </view>
 
 <view class="Container" wx:for="{{list}}" wx:key="index" wx:if="{{item.zt=='0'}}">
-<view class="Con" bindtap="down" data-fileID="{{item.intro}}">
-	<text style="margin-top: 10px;">教师：{{item.tname}}</text>
-	<text>题目：{{item.paper}}</text>
-	<text>状态：审核中</text>
-</view>
+	<view class="Con" bindtap="down" data-fileID="{{item.intro}}">
+		<text style="margin-top: 10px;">教师：{{item.tname}}</text>
+		<text>题目：{{item.paper}}</text>
+		<text>状态：审核中</text>
+	</view>
 	<view class="itemContainer">
 		<button class="btn" bindtap="setztnot" data-tno="{{item.tno}}" data-paper="{{item.paper}}">未通过</button>
 		<button class="btn" bindtap="setzt" data-tno="{{item.tno}}" data-paper="{{item.paper}}">通过</button>
