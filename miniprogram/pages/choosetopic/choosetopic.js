@@ -7,7 +7,7 @@ Page({
   data: {
     userid:"",
     name:"",
-    showLoading: true
+    showLoading: true,
   },
 
   setzt:function(e){
@@ -16,11 +16,31 @@ Page({
     let that = this
     wx.showModal({
       title: '提示',
-      content: '是否确认选择该课题',
+      content: '是否确认要选择该课题，注意：选择后不可更改',
       success (res) {
         if (res.confirm) {
           console.log('用户点击确定')    
-           
+           wx.cloud.callFunction({
+           name: 'chooset',
+           data: {
+            sno: e.currentTarget.dataset.sno,
+            zt: '已选择',//1为通过
+            tno: e.currentTarget.dataset.tno,
+            paper:e.currentTarget.dataset.paper
+          }
+          }).then(res => {
+          console.log(res.result)
+          //更新后刷新页面
+          wx.cloud.callFunction({
+            name: 'areadtopic',
+          }).then(res => {
+            console.log(res.result)
+            that.setData({
+              list:res.result
+            })
+          })
+
+        })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }

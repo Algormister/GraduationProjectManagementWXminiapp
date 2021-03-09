@@ -56,14 +56,14 @@ App({
     }
     return datestr
   },
-  getdata(){
+  getdata(){  
     return new Promise((resolve, reject) => {
-      wx.cloud.callFunction({
-        name: 'mysql',
+      wx.cloud.callFunction({   //给云函数
+        name: 'mysql', //调用的云函数
         data: {
-          e: 'gettime',
+          e: 'gettime',  //数据
         }
-      }).then(res => {
+      }).then(res => {  //event console.log(res)
         resolve(res)
       }).catch(err =>{ 
         reject(err)

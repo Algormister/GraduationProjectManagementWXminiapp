@@ -14,13 +14,16 @@
 			<view class="th">题目</view>
 			<view class="th">选择一个课题</view>
 		</view>
-		<view  class="tr" wx:for="{{list}}" wx:key="index" wx:if="{{item.zt=='1'}}">
+	
+	 
+	<view  class="tr" wx:for="{{list}}" wx:key="index" wx:if="{{item.zt=='1'}}">
 			<view class="td">{{item.tname}}</view>
 			<view class="td">{{item.paper}}</view>
-			<view class="td">
-			<button class="btn" bindtap="setzt" data-tno="{{item.tno}}" data-paper="{{item.paper}}">选择</button>
-			</view>	
-		</view>
-  
+      <view class="td">
+		    <button class="btn" bindtap="setzt" data-tno="{{item.tno}}" data-paper="{{item.paper}}">选择</button>
+    	</view>
+
 	</view>
+
+</view>
 </view>
