@@ -23,24 +23,20 @@ Page({
            wx.cloud.callFunction({
            name: 'chooset',
            data: {
-            sno: e.currentTarget.dataset.sno,
-            zt: '已选择',//1为通过
+            zt: '已选择',
             tno: e.currentTarget.dataset.tno,
-            paper:e.currentTarget.dataset.paper
+            paper:e.currentTarget.dataset.paper,
+            sno: that.data.userid
           }
           }).then(res => {
-          console.log(res.result)
+          console.log(res)
           //更新后刷新页面
-          wx.cloud.callFunction({
-            name: 'areadtopic',
-          }).then(res => {
-            console.log(res.result)
-            that.setData({
-              list:res.result
-            })
+          wx.navigateTo({
+            url: '/pages/stopic/stopic',
           })
 
         })
+
         } else if (res.cancel) {
           console.log('用户点击取消')
         }

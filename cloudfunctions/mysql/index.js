@@ -29,6 +29,15 @@ exports.main = async(event, context) => {
       }
       return 1
     }
+    if (event.e == "reply"){
+      for (let i = 0; i < event.listsname.length; i++)
+      {
+        let sql = 'UPDATE st SET date="' + event.listdate[i] + '",place="' + event.listplace[i] + '" WHERE sno="' + event.listsno[i] + '"'
+        await connection.execute(sql)
+      }
+      return 1
+    }
+
     if (event.e == "addT"){
       for (let i = 0; i < event.listtname.length; i++)
       {

@@ -1,0 +1,23 @@
+/* pages/atopicneed/atopicneed.wxss */
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.btn{
+  margin:5px 5px 0 10px;
+  padding: 0;
+  height: 28px;
+  line-height: 28px;
+  width: 60px !important;
+  font-size:12px !important;
+  border-radius: 5px;
+  background-color: #03a9f4;
+  color: #f2f2f2;
+}
+.itemContainer{
+  display: flex;
+  margin-top:20px;
+}

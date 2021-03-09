@@ -1,0 +1,21 @@
+<!--miniprogram/pages/admin/infochange/addsinfo/addsinfo.wxml-->
+<loading wx:if="{{showLoading}}">加载中</loading>
+<view class="top">
+  <image class="topimage" mode="aspectFit" src="../../../images/index-top.png"></image>
+  <view class="userinfo" style="right: 20px;">
+    <text style="font-size:10px;">{{userid}}</text>
+    <text style="font-size:10px;">{{name}}</text>
+  </view>
+</view>
+
+<view class="Container" wx:for="{{listsname}}" wx:key="index">
+  <input bindinput="bindsname" data-i="{{index}}" placeholder="姓名"></input>
+  <input bindinput="bindsno"  data-i="{{index}}" placeholder="学号"></input>
+  <input bindinput="bindsphone" data-i="{{index}}" placeholder="联系方式" style="width: 120px"></input>
+</view>
+
+<view class="btnContainer">
+  <button class="addbtn" bindtap="addinput">+</button>
+  <button class="confirmbtn" bindtap="submit">确认修改</button>
+</view>
+  

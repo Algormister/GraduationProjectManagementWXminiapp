@@ -7,22 +7,18 @@ cloud.init()
 exports.main = async(event, context) => {
   //链接mysql数据库的test库，这里你可以链接你mysql中的任意库
   try {
-    const connection = await mysql.createConnection({
+      const connection = await mysql.createConnection({
       host: "rm-uf6pwqdk6w416nt1buo.mysql.rds.aliyuncs.com",
       database: "graduation project management",
       user: "lyx",
       password: "Lyx123456"
     })
-   //event.zt更新值 1通过 2未通过,(event.tno,event.paper)主键
-      sql = "UPDATE st SET zt='" + event.zt + "' WHERE sno='" + event.sno
-      const [rows, fields] = await connection.execute(sql)
-      console.log(rows)
-      return rows;
-      
- 
-    //}
-    // const [rows, fields] = await connection.execute('SELECT * from admin')
-    // return rows;
+    //event指的是触发云函数的事件，当小程序端调用云函数时，event 就是小程序端调用云函数时传入的参数，
+    //外加后端自动注入的小程序用户的 openid 和小程序的 appid
+    let sql = "INSERT INTO st(sno,tno,title,zt) VALUES('"+event.sno+"','" + event.tno + "','" + event.paper + "','" + event.zt + "')"
+    const [rows, fields] = await connection.execute(sql)
+    return rows;
+
   } catch (err) {
     console.log("链接错误", err)
     return err
