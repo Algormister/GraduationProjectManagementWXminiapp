@@ -14,10 +14,13 @@ exports.main = async(event, context) => {
       password: "Lyx123456"
     })
    //event.zt更新值 1通过 2未通过,(event.tno,event.paper)主键
-      sql = "UPDATE st SET zt='" + event.zt + "' WHERE sno='" + event.sno
-      const [rows, fields] = await connection.execute(sql)
-      console.log(rows)
-      return rows;
+   let sql = "INSERT INTO `graduation project management`.`st` (`sno`,`tno`,`title`,`state`,`zt`) VALUES ('" + event.sno + "','" + event.tno + "','" + event.paper + "','进行中','已选择');"
+    // sql = "UPDATE st SET zt='" + event.zt + "' WHERE sno='" + event.sno
+    await connection.execute(sql)
+    sql = "update st SET place = NULL where sno = '" + event.sno + "'"
+    await connection.execute(sql)
+    console.log(rows)
+    return 1;
       
  
     //}

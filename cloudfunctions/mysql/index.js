@@ -90,6 +90,12 @@ exports.main = async(event, context) => {
       const [rows, fields] = await connection.execute(sql)
       return rows
     }
+    if (event.e == "ischosen")
+    {
+      let sql = "select * from st where sno = '" + event.sno + "'"
+      const [rows, fields] = await connection.execute(sql)
+      return rows
+    }
     // const [rows, fields] = await connection.execute('SELECT * from admin')
     // return rows;
   } catch (err) {

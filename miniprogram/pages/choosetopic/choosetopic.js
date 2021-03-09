@@ -22,25 +22,47 @@ Page({
       content: '是否确认要选择该课题，注意：选择后不可更改',
       success (res) {
         if (res.confirm) {
-          console.log('用户点击确定')    
+          wx.showLoading({
+            title: '加载中...',
+            mask:true
+          })
+          that.setData({
+            project: e.currentTarget.dataset.paper
+          })   
+          console.log('用户点击确定') 
+          wx.cloud.callFunction({
+            name: 'mysql',
+            data: {
+              e: 'getTname',
+              tno: e.currentTarget.dataset.tno
+            }
+          }).then(res => {
+            wx.hideLoading()
+            console.log(res);
+            that.setData({
+              tname: res.result[0].tname
+            })
+          })
            wx.cloud.callFunction({
            name: 'chooset',
            data: {
-            sno: e.currentTarget.dataset.sno,
+            sno: that.data.userid,
             zt: '已选择',//1为通过
             tno: e.currentTarget.dataset.tno,
             paper:e.currentTarget.dataset.paper
           }
           }).then(res => {
-          console.log(res.result)
-          //更新后刷新页面
-          wx.cloud.callFunction({
-            name: 'areadtopic',
-          }).then(res => {
-            console.log(res.result)
             that.setData({
-              list:res.result
+              ischosen: true
             })
+          //更新后刷新页面
+            wx.cloud.callFunction({
+              name: 'areadtopic',
+            }).then(res => {
+              console.log(res.result)
+              that.setData({
+                list:res.result
+              })
           })
 
         })
@@ -59,15 +81,15 @@ Page({
     await this.getuserinfoasync().then(() => {
       console.log(123);
     })
-    await wx.cloud.callFunction({
+    wx.cloud.callFunction({
       name: 'mysql',
       data:{
-        e: 'getT',
+        e: 'ischosen',
         sno: that.data.userid
       }
     }).then(res => {
       console.log(res);
-      if (res.result[0].zt == "已选择"){
+      if (res.result.length == 1){
         wx.showLoading({
           title: '加载中...',
           mask:true
