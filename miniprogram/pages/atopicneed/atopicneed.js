@@ -21,6 +21,10 @@ Page({
       success (res) {
         if (res.confirm) {
           console.log('用户点击确定')  
+          wx.showLoading({
+            title: '下载中...',
+            mask:true
+          })
         wx.cloud.downloadFile({
         fileID: e.currentTarget.dataset.fileid,
          success: res => {
@@ -30,6 +34,7 @@ Page({
         filePath: wx.env.USER_DATA_PATH + str,
         //wx.env.USER_DATA_PATH + '/abc', //保存到用户目录/abc文件中，此处文件名自定义，因为tempFilePath对应的是一大长串字符
         success(res) {
+          wx.hideLoading()
           console.log('save ->', res) // res.savedFilePath 为一个本地缓存文件路径
           wx.showToast({
             title: '文件已保存至：' + res.savedFilePath,
