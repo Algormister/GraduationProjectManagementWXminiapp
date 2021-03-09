@@ -15,7 +15,7 @@ exports.main = async(event, context) => {
     })
     //event指的是触发云函数的事件，当小程序端调用云函数时，event 就是小程序端调用云函数时传入的参数，
     //外加后端自动注入的小程序用户的 openid 和小程序的 appid
-    let sql = "INSERT INTO st(sno,tno,title,zt) VALUES('"+event.sno+"','" + event.tno + "','" + event.paper + "','" + event.zt + "')"
+    let sql="UPDATE st SET zt='" + event.zt + "',tno='" + event.tno + "',title='" + event.paper + "' WHERE sno='" + event.sno +"' "
     const [rows, fields] = await connection.execute(sql)
     return rows;
 

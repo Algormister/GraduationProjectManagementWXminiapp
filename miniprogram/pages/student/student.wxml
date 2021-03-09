@@ -11,16 +11,25 @@
 <view class="container">
   <!-- 选题 -->
   <!-- 包含可申报课题（展示）、选择课题、结果公布（这一步取得导师信息） -->
-  <navigator url="../choosetopic/choosetopic" open-type="navigate" class="uploader-text">
+  <navigator url="../choosetopic/choosetopic" open-type="navigate" class="uploader-text" >
     <image class="btnimage" src="../../images/icon/keti.png"></image>
     <text style="margin-left: 50px;">课题选择</text>
   </navigator>
 </view>
 
 <view class="container">
+  <!-- 选题 -->
+  <!-- 包含可申报课题（展示）、选择课题、结果公布（这一步取得导师信息） -->
+  <navigator url="../stopic/stopic" open-type="navigate" class="uploader-text" >
+    <image class="btnimage" src="../../images/icon/keti.png"></image>
+    <text style="margin-left: 50px;">我的课题</text>
+  </navigator>
+</view>
+
+<view class="container">
   <!-- 论文提交 -->
   <!-- 包含提交论文（可修改？）、导师建议、结果（学生可能不知道？） -->
-  <navigator url="../swpaper/swpaper" open-type="navigate" class="uploader-text">
+  <navigator url="../swpaper/swpaper" open-type="navigate" class="uploader-text" >
     <image class="btnimage" src="../../images/icon/tijiao.png"></image>
     <text style="margin-left: 50px;">论文提交</text>
   </navigator>

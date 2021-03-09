@@ -59,7 +59,7 @@
 </view>
 
 <view class="container">
-  <navigator url="../pages/admin/setreply/addreply/addreply" open-type="navigate" class="uploader-text">
+  <navigator url="./addreply/addreply" open-type="navigate" class="uploader-text">
     <image class="btnimage" src="../../images/icon/dabian.png"></image>
     <text style="margin-left: 50px;">答辩设定</text>
   </navigator>

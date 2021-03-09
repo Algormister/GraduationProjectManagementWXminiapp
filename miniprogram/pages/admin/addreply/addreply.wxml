@@ -8,10 +8,10 @@
   </view>
 </view>
 
-<view class="Container" wx:for="{{listsname}}" wx:key="index">
-  <input bindinput="bindsname" data-i="{{index}}" placeholder="姓名"></input>
+<view class="Container" wx:for="{{listsno}}" wx:key="index">
   <input bindinput="bindsno"  data-i="{{index}}" placeholder="学号"></input>
-  <input bindinput="bindsphone" data-i="{{index}}" placeholder="联系方式" style="width: 120px"></input>
+  <input bindinput="bindspace" data-i="{{index}}" placeholder="地点"></input>
+  <input bindinput="binddate" data-i="{{index}}" placeholder="时间" style="width: 120px"></input>
 </view>
 
 <view class="btnContainer">

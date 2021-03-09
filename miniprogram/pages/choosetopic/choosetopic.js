@@ -8,10 +8,12 @@ Page({
     userid:"",
     name:"",
     showLoading: true,
+    disabled:false
   },
 
   setzt:function(e){
     // 选择（更新）
+    
     console.log(e)
     let that = this
     wx.showModal({
@@ -29,13 +31,18 @@ Page({
             sno: that.data.userid
           }
           }).then(res => {
+          that.setData({
+              disabled:true
+          })
           console.log(res)
           //更新后刷新页面
           wx.navigateTo({
-            url: '/pages/stopic/stopic',
+            url: '/pages/student/student',
           })
+         
 
         })
+
 
         } else if (res.cancel) {
           console.log('用户点击取消')
@@ -48,6 +55,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     let that = this
     wx.getStorage({
       key: 'userinfo',
@@ -79,10 +87,11 @@ Page({
       console.log(res.result)
       that.setData({
         showLoading: false,
-        list:res.result
+        list:res.result,
       })
     })
   },
+
 
   /**
    * 生命周期函数--监听页面隐藏

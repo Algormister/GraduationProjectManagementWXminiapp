@@ -7,6 +7,7 @@ Page({
   data: {
     userid:"",
     name:"",
+    listsname:[""],
     listsno: [""],
     listdate:[""],
     listspace:[""],
@@ -88,7 +89,7 @@ Page({
       listdate: this.data.listdate
     })
     // console.log(this.data.listsname);
-     console.log(this.data.listsno);
+     console.log(this.data);
   },
   bindsno: function(e){
     let index = e.currentTarget.dataset.i
@@ -117,7 +118,7 @@ Page({
   submit: function(){
     let that = this
     let flag = true
-    console.log(that.data.listsname);
+    console.log(that.data.listspace);
     this.setData({
       showLoading: true
     })
@@ -153,16 +154,6 @@ Page({
       that.setData({
         showLoading: false
       })
-      if (res.result != 1)
-      {
-        wx.showToast({
-          title: '提交失败(学号已存在)',
-          icon: 'none',
-          duration: 2000,
-          mask:true
-        })
-      }
-      else{
         wx.showModal({
           title: '提交成功',
           content: '',
@@ -171,11 +162,11 @@ Page({
           confirmColor: 'skyblue',//确定文字的颜色
           success: function (res) {
             wx.navigateTo({
-              url: '../infochange',
+              url: '/pages/admin/admin',
             })
           },
         })
-      }
+  
       }).catch(err => {
       console.log(err)
       })

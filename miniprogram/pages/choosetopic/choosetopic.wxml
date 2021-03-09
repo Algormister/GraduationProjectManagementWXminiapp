@@ -20,9 +20,8 @@
 			<view class="td">{{item.tname}}</view>
 			<view class="td">{{item.paper}}</view>
       <view class="td">
-		    <button class="btn" bindtap="setzt" data-tno="{{item.tno}}" data-paper="{{item.paper}}">选择</button>
+		    <button class="btn" bindtap="setzt" data-tno="{{item.tno}}" data-paper="{{item.paper}}" disabled="{{disabled}}">选择</button>
     	</view>
-
 	</view>
 
 </view>

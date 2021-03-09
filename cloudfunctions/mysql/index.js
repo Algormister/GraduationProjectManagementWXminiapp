@@ -24,15 +24,17 @@ exports.main = async(event, context) => {
       {
         let sql = 'INSERT INTO `graduation project management`.`s` (`sname`,`sno`,`sphone`) VALUES ("' + event.listsname[i] + '","' + event.listsno[i] + '","' + event.listsphone[i] + '");'
         await connection.execute(sql)
+        sql = 'INSERT INTO `graduation project management`.`st` (`sno`) VALUES ("' + event.listsno[i] + '");'
+        await connection.execute(sql)
         sql = 'INSERT INTO `graduation project management`.`user` (`userid`,`password`,`name`,`zw`) VALUES ("' + event.listsno[i] + '","123456","' + event.listsname[i] + '","student");'
         await connection.execute(sql)
       }
       return 1
     }
     if (event.e == "reply"){
-      for (let i = 0; i < event.listsname.length; i++)
+      for (let i = 0; i < event.listsno.length; i++)
       {
-        let sql = 'UPDATE st SET date="' + event.listdate[i] + '",place="' + event.listplace[i] + '" WHERE sno="' + event.listsno[i] + '"'
+        let sql = "UPDATE `graduation project management`.`st` SET `date`='" +  event.listdate[i] + "',`space`='" + event.listspace[i] + "' WHERE `sno`='" + event.listsno[i] + "';"
         await connection.execute(sql)
       }
       return 1
