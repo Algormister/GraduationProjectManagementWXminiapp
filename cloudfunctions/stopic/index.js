@@ -14,7 +14,7 @@ exports.main = async(event, context) => {
       password: "Lengtian123"
     })
 
-      sql = "SELECT tname,title,zt from st,t where st.tno=t.tno and sno = '" + event.sno + "'"
+      sql = "SELECT st.sno,sname,st.tno,tname,title,zt,date,space from st,t,s where st.sno=s.sno and st.tno=t.tno and (st.sno = '" + event.sno + "' or st.tno = '" + event.sno + "')" 
       const [rows, fields] = await connection.execute(sql)
       return rows;
     

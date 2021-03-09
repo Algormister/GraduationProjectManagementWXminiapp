@@ -6,7 +6,10 @@ Page({
    */
   data: {
       userid:"",
-      name:""
+      name:"",
+      list:"",
+      space:"",
+      date:""
   },
 
   /**
@@ -17,13 +20,27 @@ Page({
     wx.getStorage({
       key: 'userinfo',
       success:function(res){
+        wx.cloud.callFunction({
+          name: 'stopic',
+          data:{
+            sno:res.data.userid
+          }
+        }).then(res => { 
+          that.setData({
+            showLoading: false,
+            list:res.result,
+          })
+          console.log(res.result)
+        })
         // console.log(res);
         that.setData({
           userid:res.data.userid,
-          name:res.data.name
+          name:res.data.name,
+          showLoading:false
         })
       }
     })
+
     // console.log(this.data.userid);
   },
   logout:function(){

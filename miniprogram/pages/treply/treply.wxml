@@ -10,10 +10,12 @@
 <view>
 	<view class="table">
 		<view class="tr">
+		  <view class="th">答辩人</view>
 			<view class="th">答辩时间</view>
 			<view class="th">答辩地点</view>
 		</view>
 		<view  class="tr" wx:for="{{list}}" wx:key="index">
+		  <view class="td">{{item.sname}}</view>
 			<view class="td">{{item.date}}</view>
 			<view class="td">{{item.space}}</view>
 		</view>	

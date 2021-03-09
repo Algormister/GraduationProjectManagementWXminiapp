@@ -24,9 +24,9 @@ exports.main = async(event, context) => {
       {
         let sql = 'INSERT INTO `graduation project management`.`s` (`sname`,`sno`,`sphone`) VALUES ("' + event.listsname[i] + '","' + event.listsno[i] + '","' + event.listsphone[i] + '");'
         await connection.execute(sql)
-        sql = 'INSERT INTO `graduation project management`.`st` (`sno`) VALUES ("' + event.listsno[i] + '");'
-        await connection.execute(sql)
         sql = 'INSERT INTO `graduation project management`.`user` (`userid`,`password`,`name`,`zw`) VALUES ("' + event.listsno[i] + '","123456","' + event.listsname[i] + '","student");'
+        await connection.execute(sql)
+        sql = 'INSERT INTO `graduation project management`.`st` (`sno`,`tno`,`title`,`paper`,`state`,`zt`,`date`,`space`) VALUES ("' + event.listsno[i] + '","NULL","NULL","NULL","进行中","未选择","NULL","NULL");'
         await connection.execute(sql)
       }
       return 1
@@ -56,6 +56,8 @@ exports.main = async(event, context) => {
         let sql = 'DELETE FROM `graduation project management`.`s` WHERE `sno`="' + event.listsno[i] + '";'
         await connection.execute(sql)
         sql = 'DELETE FROM `graduation project management`.`user` WHERE `userid`="' + event.listsno[i] + '";'
+        await connection.execute(sql)
+        sql = 'DELETE FROM `graduation project management`.`st` WHERE `sno`="' + event.listsno[i] + '";'
         await connection.execute(sql)
       }
       return 1

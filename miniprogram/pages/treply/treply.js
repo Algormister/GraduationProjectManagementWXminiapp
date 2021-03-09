@@ -7,8 +7,10 @@ Page({
   data: {
       userid:"",
       name:"",
-      zt:"",
       list:"",
+      space:"",
+      date:"",
+      sname:"",
       sno:""
   },
 
@@ -31,7 +33,6 @@ Page({
             list:res.result,
           })
           console.log(res.result)
-    
         })
         // console.log(res);
         that.setData({
@@ -42,8 +43,8 @@ Page({
       }
     })
 
+    // console.log(this.data.userid);
   },
-
   logout:function(){
     wx.removeStorage({
       key: 'userinfo',
@@ -65,7 +66,6 @@ Page({
    */
   onShow: function () {
     wx.hideHomeButton()
-    
   },
 
   /**

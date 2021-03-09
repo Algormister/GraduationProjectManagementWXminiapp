@@ -38,7 +38,7 @@
   <!-- 评阅与答辩 -->
   <!-- 包括选择审阅论文（这一步可以省略，交给私下沟通）、评阅打分、答辩信息 -->
   <!-- 审阅论文可以提出修改指导、打分是评阅部分最终给分、答辩是给出时间地点等信息（可以直接用附件） -->
-  <navigator url="../im/im" open-type="navigate" class="uploader-text">
+  <navigator url="../treply/treply" open-type="navigate" class="uploader-text">
     <image class="btnimage" src="../../images/icon/dabian.png"></image>
     <text style="margin-left: 50px;">评阅与答辩</text>
   </navigator>
