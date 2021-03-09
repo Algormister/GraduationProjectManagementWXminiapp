@@ -9,7 +9,8 @@ Page({
       name:"",
       zt:"",
       list:"",
-      sno:""
+      sno:"",
+      length:""
   },
 
   /**
@@ -29,8 +30,9 @@ Page({
           that.setData({
             showLoading: false,
             list:res.result,
+            length:res.result.length
           })
-          console.log(res.result)
+          console.log(res.result.length)
     
         })
         // console.log(res);
