@@ -84,6 +84,12 @@ exports.main = async(event, context) => {
       await connection.execute(sql)
       return 1
     }
+    if (event.e == "getTname")
+    {
+      let sql = "select * from t where tno = '" + event.tno + "'"
+      const [rows, fields] = await connection.execute(sql)
+      return rows
+    }
     // const [rows, fields] = await connection.execute('SELECT * from admin')
     // return rows;
   } catch (err) {

@@ -8,6 +8,9 @@ Page({
     userid:"",
     name:"",
     showLoading: true,
+    ischosen: false,
+    tname: '',
+    project: ''
   },
 
   setzt:function(e){
@@ -51,17 +54,44 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     let that = this
-    wx.getStorage({
-      key: 'userinfo',
-      success:function(res){
-        // console.log(res);
+    await this.getuserinfoasync().then(() => {
+      console.log(123);
+    })
+    await wx.cloud.callFunction({
+      name: 'mysql',
+      data:{
+        e: 'getT',
+        sno: that.data.userid
+      }
+    }).then(res => {
+      console.log(res);
+      if (res.result[0].zt == "已选择"){
+        wx.showLoading({
+          title: '加载中...',
+          mask:true
+        })
         that.setData({
-          userid:res.data.userid,
-          name:res.data.name
+          ischosen: true,
+          project: res.result[0].title
+        })
+        wx.cloud.callFunction({
+          name: 'mysql',
+          data: {
+            e: 'getTname',
+            tno: res.result[0].tno
+          }
+        }).then(ans =>{
+          wx.hideLoading()
+          console.log(ans);
+          that.setData({
+            tname: ans.result[0].tname
+          })
         })
       }
+    }).catch(err =>{
+      console.log(err);
     })
   },
 
@@ -69,13 +99,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log(this.data.ischosen);
     let that = this
     wx.cloud.callFunction({
       name: 'areadtopic',
@@ -121,5 +151,21 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getuserinfoasync(){
+    let that = this
+    return new Promise((resolve) =>{
+      wx.getStorage({
+        key: 'userinfo',
+        success:function(res){
+          // console.log(res);
+          that.setData({
+            userid:res.data.userid,
+            name:res.data.name
+          })
+          resolve()
+        }
+      })
+    })
   }
 })
