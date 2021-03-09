@@ -9,7 +9,44 @@ Page({
     name:"",
     showLoading: true
   },
-
+  down:function(e){
+    console.log(e.currentTarget.dataset.fileid);
+    let str = e.currentTarget.dataset.fileid;
+    let index = str.lastIndexOf("/");
+    str =str.substring(index,str.length);
+    console.log(str);
+    wx.showModal({
+      title: '提示',
+      content: '是否确认要下载此课题材料',
+      success (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')  
+        wx.cloud.downloadFile({
+        fileID: e.currentTarget.dataset.fileid,
+         success: res => {
+         console.log(res)
+         wx.getFileSystemManager().saveFile({
+        tempFilePath: res.tempFilePath, // 传入一个本地临时文件路径, http://tmp/开头的
+        filePath: wx.env.USER_DATA_PATH + str,
+        //wx.env.USER_DATA_PATH + '/abc', //保存到用户目录/abc文件中，此处文件名自定义，因为tempFilePath对应的是一大长串字符
+        success(res) {
+          console.log('save ->', res) // res.savedFilePath 为一个本地缓存文件路径
+          wx.showToast({
+            title: '文件已保存至：' + res.savedFilePath,
+            icon: 'none',
+            duration: 1500
+          })
+        }
+      })
+   }
+  })
+        } 
+        else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
