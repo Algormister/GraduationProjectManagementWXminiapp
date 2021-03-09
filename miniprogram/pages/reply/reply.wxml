@@ -1,0 +1,17 @@
+<!--pages/student/student.wxml-->
+<loading wx:if="{{showLoading}}">加载中</loading>
+<view class="top">
+  <image class="topimage" mode="aspectFit" src="../../images/index-top.png"></image>
+  <view class="userinfo">
+    <text style="font-size:10px;">{{userid}}</text>
+    <text style="font-size:10px;">{{name}}</text>
+  </view>
+</view>
+<view>
+	<view class="table">
+		<view class="tr">
+			<view class="th">答辩时间</view>
+			<view class="th">答辩地点</view>
+		</view>
+	</view>
+</view>

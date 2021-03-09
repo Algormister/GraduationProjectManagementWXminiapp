@@ -8,11 +8,11 @@
   </view>
 </view>
 <view class="uploader">
-<form catchsubmit="formSubmit" catchreset="formReset">
-<view class="comContainer">
-<view class="titContainer">
-<text class="tittext">论文附件:</text>
-<text class="upcontent">{{filename}}</text>
+  <form catchsubmit="formSubmit" catchreset="formReset">
+   <view class="comContainer">
+   <view class="titContainer">
+   <text class="tittext">论文附件:</text>
+   <text class="upcontent">{{filename}}</text>
 </view>
 <view>
 <button class="btn" bindtap="up">上传</button>
